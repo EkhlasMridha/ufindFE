@@ -1,5 +1,6 @@
 @import "~@angular/material/theming";
 @import "theme_pallets.scss";
+@import "../app/app-redirection-page/components/redirection/redirection.component.scss";
 
 @include mat-core();
 
@@ -14,3 +15,5 @@ $custom-theme: mat-light-theme(
 );
 
 @include angular-material-theme($custom-theme);
+
+@include custom-component-theme($custom-theme);

@@ -1,8 +1,12 @@
 <div class="main-container">
   <div class="container-sub">
-    <app-toolbar></app-toolbar>
-    <div class="body-container">
+    <ng-container *ngTemplateOutlet="toolbar"></ng-container>
+    <div class="scroller-container">
       <app-content></app-content>
     </div>
   </div>
 </div>
+
+<ng-template #toolbar>
+  <app-toolbar></app-toolbar>
+</ng-template>

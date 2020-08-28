@@ -1,8 +1,4 @@
-@import "~@angular/material/theming";
-
-@mixin custom-component-theme($theme) {
-  $primary: map-get($theme, primary);
-  h1 {
-    color: mat-color($primary, default);
-  }
+.pages {
+  padding: 10px;
+  width: 100%;
 }

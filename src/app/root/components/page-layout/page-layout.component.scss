@@ -17,11 +17,8 @@ app-page-layout {
       width: 100%;
       min-width: 0;
       min-height: 0;
-      app-toolbar {
-        width: 100%;
-        z-index: 999;
-      }
-      .body-container {
+
+      .scroller-container {
         position: relative;
         display: flex;
         flex-direction: column;

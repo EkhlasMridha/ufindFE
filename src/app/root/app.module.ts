@@ -7,14 +7,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppContentComponent } from './components/app-content/app-content.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { PageLayoutComponent } from './components/page-layout/page-layout.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
-  declarations: [AppComponent, ToolbarComponent, AppContentComponent, PageLayoutComponent],
+  declarations: [
+    AppComponent,
+    ToolbarComponent,
+    AppContentComponent,
+    PageLayoutComponent,
+  ],
   imports: [
     BrowserModule,
     RootRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

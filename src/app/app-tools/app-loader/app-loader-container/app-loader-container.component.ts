@@ -3,7 +3,7 @@ import { PreloaderService } from '../service/preloader.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-loader-container',
+  selector: 'app-loader',
   templateUrl: './app-loader-container.component.html',
   styleUrls: ['./app-loader-container.component.scss'],
 })

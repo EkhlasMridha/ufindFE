@@ -56,11 +56,4 @@ export class NavTracerService {
       return this.generateNavTrace(child, navTrace);
     }
   }
-
-  private getRefinedRouteArray(): string[] {
-    let routes = this.router.url.toString();
-    routes = routes.slice(1);
-    let routeArray = routes.split('/');
-    return routeArray;
-  }
 }

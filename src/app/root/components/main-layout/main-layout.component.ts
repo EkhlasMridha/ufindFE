@@ -13,11 +13,14 @@ export class MainLayoutComponent implements OnInit {
   BREAD_CRUMB_NAME: string = 'breadcrumb';
   constructor(
     private navTracer: NavTracerService,
-    private routes: ActivatedRoute,
-    private router: Router
+    private routes: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.navTracer.setTitle(this.routes.root, DomainService.domains.AppName);
+    this.navTracer.setTitle(
+      this.routes.root,
+      DomainService.domains.AppName,
+      '::'
+    );
   }
 }

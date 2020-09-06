@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, transition, animate, style } from '@angular/animations';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sigin',
@@ -18,7 +19,25 @@ import { trigger, transition, animate, style } from '@angular/animations';
   ],
 })
 export class SiginComponent implements OnInit {
-  constructor() {}
+  loginForm: FormGroup;
+  constructor(private formBuilder: FormBuilder) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loginForm = this.createForm();
+  }
+
+  createForm() {
+    return this.formBuilder.group({
+      userName: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+  }
+
+  onSubmit() {
+    if (!this.loginForm.valid) {
+      return;
+    }
+    const result = Object.assign({}, this.loginForm.value);
+    console.log(result);
+  }
 }

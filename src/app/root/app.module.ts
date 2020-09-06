@@ -12,6 +12,8 @@ import { DomainService } from '../shared-services/utilities/domain.service';
 import { AppLoaderModule } from '../app-tools/app-loader/app-loader.module';
 import { NonavLayoutComponent } from './components/nonav-layout/nonav-layout.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { MatButtonModule } from '@angular/material/button';
 
 export function initializer(domainService: DomainService) {
   return () => {
@@ -31,6 +33,7 @@ export function initializer(domainService: DomainService) {
     PageLayoutComponent,
     NonavLayoutComponent,
     MainLayoutComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ export function initializer(domainService: DomainService) {
     BrowserAnimationsModule,
     MatToolbarModule,
     FlexLayoutModule,
+    MatButtonModule,
     AppLoaderModule,
   ],
   providers: [

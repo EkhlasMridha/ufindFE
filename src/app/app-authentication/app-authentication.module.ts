@@ -7,8 +7,20 @@ import { SharedMaterialModule } from '../shared-modules/shared-materials/shared-
 import { FormsMaterialModule } from '../shared-modules/shared-materials/forms-material/forms-material.module';
 
 const routes: Routes = [
-  { path: 'signin', component: SiginComponent },
-  { path: 'signup', component: SignupComponent },
+  {
+    path: 'signin',
+    component: SiginComponent,
+    data: {
+      breadCrumb: 'SignIn',
+    },
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
+    data: {
+      breadCrumb: 'SignUp',
+    },
+  },
 ];
 
 @NgModule({

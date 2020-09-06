@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,5 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AppComponent {
   title = 'root-line';
-  constructor(private routes: ActivatedRoute, private router: Router) {
-    this.router.events.subscribe((res) => {
-      console.log(this.routes.root);
-    });
-  }
+  constructor(private routes: ActivatedRoute, private router: Router) {}
 }

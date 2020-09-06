@@ -10,6 +10,6 @@ export class RedirectionComponent implements OnInit {
   constructor(private routes: ActivatedRoute) {}
 
   ngOnInit(): void {
-    console.log(this.routes.snapshot.data.breadcrumb);
+    // console.log(this.routes.snapshot.data.breadcrumb);
   }
 }

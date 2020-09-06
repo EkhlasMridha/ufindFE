@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { DomainService } from '../shared-services/utilities/domain.service';
 
 const routes: Routes = [
   {
@@ -13,7 +14,7 @@ const routes: Routes = [
         (m) => m.AppRedirectionPageModule
       ),
     data: {
-      breadcrumb: 'Dashboard',
+      breadCrumb: 'Dashboard',
     },
   },
 ];

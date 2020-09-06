@@ -10,6 +10,8 @@ import { PageLayoutComponent } from './components/page-layout/page-layout.compon
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DomainService } from '../shared-services/utilities/domain.service';
 import { AppLoaderModule } from '../app-tools/app-loader/app-loader.module';
+import { NonavLayoutComponent } from './components/nonav-layout/nonav-layout.component';
+import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 
 export function initializer(domainService: DomainService) {
   return () => {
@@ -27,6 +29,8 @@ export function initializer(domainService: DomainService) {
     ToolbarComponent,
     AppContentComponent,
     PageLayoutComponent,
+    NonavLayoutComponent,
+    MainLayoutComponent,
   ],
   imports: [
     BrowserModule,

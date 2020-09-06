@@ -1,19 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import * as routerConfig from './root.routes';
 
-const routes: Routes = [
-  {
-    path: '',
-    loadChildren: () =>
-      import('../app-redirection-page/app-redirection-page.module').then(
-        (m) => m.AppRedirectionPageModule
-      ),
-  },
-];
 @NgModule({
   declarations: [],
-  imports: [CommonModule, RouterModule.forRoot(routes)],
+  imports: [CommonModule, RouterModule.forRoot(routerConfig.getAppRoutes())],
   exports: [RouterModule],
 })
 export class RootRoutingModule {}

@@ -1,2 +1,7 @@
-$primary: #00203f;
-$secondary: #adefd1;
+@import "./custom_theme.scss";
+
+$primary: map-get($custom-theme, primary);
+$accent: map-get($custom-theme, accent);
+
+$primary-default: mat-color($primary, default);
+$secondary-default: mat-color($accent, default);

@@ -1,0 +1,60 @@
+<div class="page-theme primary-background" fxLayoutAlign="center center">
+  <mat-card
+    class="sigin-form secondary-background"
+    fxLayoutAlign="space-between center"
+    fxLayoutGap="20px"
+  >
+    <div @fadeOut class="sigin" fxLayout="column" fxLayoutAlign="center center">
+      <span class="form-title">Sign Up</span>
+      <div fxLayout="row" fxLayoutGap="10px">
+        <mat-form-field appearance="outline">
+          <mat-label>First name</mat-label>
+          <input matInput type="text" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Last name</mat-label>
+          <input matInput type="text" />
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutGap="10px">
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input matInput type="text" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" />
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutGap="10px">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Confirm Password</mat-label>
+          <input matInput type="password" />
+        </mat-form-field>
+      </div>
+
+      <button mat-raised-button color="primary" class="full-width">
+        SignUp
+      </button>
+    </div>
+    <div
+      class="full-height full-width"
+      fxLayoutAlign="center center"
+      fxLayout="column"
+    >
+      <h2 class="title">Already have an account ?</h2>
+      <button
+        mat-stroked-button
+        class="white-button-outline"
+        routerLink="/signin"
+      >
+        Sign In
+      </button>
+    </div>
+  </mat-card>
+</div>

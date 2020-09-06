@@ -1,0 +1,36 @@
+<div class="page-theme primary-background" fxLayoutAlign="center center">
+  <mat-card
+    class="sigin-form secondary-background"
+    fxLayoutAlign="space-between center"
+    fxLayoutGap="20px"
+  >
+    <div
+      class="full-height full-width"
+      fxLayoutAlign="center center"
+      fxLayout="column"
+    >
+      <h2 class="title">Don't have an account ?</h2>
+      <button
+        mat-stroked-button
+        class="white-button-outline"
+        routerLink="/signup"
+      >
+        SignUp Now
+      </button>
+    </div>
+    <div @fadeOut class="sigin" fxLayout="column" fxLayoutAlign="center center">
+      <span class="form-title">Sign In</span>
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" class="full-width">
+        SignIn
+      </button>
+    </div>
+  </mat-card>
+</div>

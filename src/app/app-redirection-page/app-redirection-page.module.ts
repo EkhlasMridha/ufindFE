@@ -4,7 +4,12 @@ import { RedirectionComponent } from './components/redirection/redirection.compo
 import { RouterModule, Routes } from '@angular/router';
 import { SharedMaterialModule } from '../shared-modules/shared-materials/shared-material/shared-material.module';
 
-const routes: Routes = [{ path: '', component: RedirectionComponent }];
+const routes: Routes = [
+  {
+    path: '',
+    component: RedirectionComponent,
+  },
+];
 
 @NgModule({
   declarations: [RedirectionComponent],

@@ -12,6 +12,9 @@ const routes: Routes = [
       import('../app-redirection-page/app-redirection-page.module').then(
         (m) => m.AppRedirectionPageModule
       ),
+    data: {
+      breadcrumb: 'Dashboard',
+    },
   },
 ];
 

@@ -10,14 +10,8 @@ import { trigger, transition, animate, style } from '@angular/animations';
       transition(':enter', [
         style({ transform: 'translateX(-350px)', opacity: 0 }),
         animate(
-          '1.5s ease-out',
+          '1s ease-out',
           style({ transform: 'translateX(0%)', opacity: 1 })
-        ),
-      ]),
-      transition(':leave', [
-        animate(
-          '1.5s ease-in',
-          style({ transform: 'translateX(-350px)', opacity: 0 })
         ),
       ]),
     ]),

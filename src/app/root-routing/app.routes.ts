@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { DomainService } from '../shared-services/utilities/domain.service';
 
 const routes: Routes = [
   {
@@ -10,8 +9,8 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () =>
-      import('../app-redirection-page/app-redirection-page.module').then(
-        (m) => m.AppRedirectionPageModule
+      import('../app-dashboard/app-dashboard.module').then(
+        (module) => module.AppDashboardModule
       ),
     data: {
       breadCrumb: 'Dashboard',

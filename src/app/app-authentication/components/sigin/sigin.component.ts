@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, transition, animate, style } from '@angular/animations';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormControl,
+} from '@angular/forms';
+import { filter, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { FormService } from 'src/app/shared-services/utilities/form.service';
 
 @Component({
   selector: 'app-sigin',
@@ -20,10 +28,33 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SiginComponent implements OnInit {
   loginForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) {}
+
+  errorObserver$ = {
+    userName: '',
+    password: '',
+  };
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private formService: FormService
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.createForm();
+    this.formService.handleFormError(
+      this.loginForm,
+      this.errorObserver$,
+      this.errorTypeGenerator
+    );
+  }
+
+  errorTypeGenerator(type: string, owner: string) {
+    switch (owner) {
+      case 'userName':
+        return 'User name is required';
+      case 'password':
+        return 'Password is required';
+    }
   }
 
   createForm() {

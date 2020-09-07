@@ -1,4 +1,4 @@
-<div fxLayout="column" fxLayoutGap="30px">
+<div fxLayout="column" fxLayoutGap="30px" *ngIf="!modalConfig.isLoader">
   <div fxLayout="column" fxLayoutGap="20px">
     <div
       *ngIf="modalConfig.matIcon && !modalConfig.localIcon"
@@ -46,5 +46,17 @@
     >
       {{ modalConfig.primaryButtonName }}
     </button>
+  </div>
+</div>
+<div
+  *ngIf="modalConfig.isLoader"
+  fxLayoutAlign="start center"
+  fxLayoutGap="30px"
+>
+  <div>
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
+  <div>
+    <span style="font-size: 16px">{{ modalConfig.loaderText }}</span>
   </div>
 </div>

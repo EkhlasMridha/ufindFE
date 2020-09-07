@@ -12,6 +12,7 @@ import {
   ModalConfig,
 } from './configs/modal.config';
 import { ModuleWithProviders } from '@angular/compiler/src/core';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 export const DefaultComponentConfig: Partial<ModalConfig> = {
   ...DefaultConfig,
@@ -25,6 +26,7 @@ export const DefaultComponentConfig: Partial<ModalConfig> = {
     MatButtonModule,
     MatIconModule,
     FlexLayoutModule,
+    MatProgressSpinnerModule,
   ],
   providers: [ConfirmationStatusService],
   entryComponents: [ConfirmationStatusComponent],

@@ -14,6 +14,8 @@ export interface ModalConfig {
   secondaryButtonName: string;
   modalWidth: string;
   disableClose: boolean;
+  isLoader: boolean;
+  loaderText: string;
   primaryEvent: () => any;
   secondaryEvent: () => any;
 }
@@ -26,6 +28,8 @@ export const DefaultConfig: Partial<ModalConfig> = {
   type: 'general',
   modalWidth: 'auto',
   disableClose: false,
+  isLoader: false,
+  loaderText: 'Loading ...',
   primaryEvent: () => {},
   secondaryEvent: () => {},
 };

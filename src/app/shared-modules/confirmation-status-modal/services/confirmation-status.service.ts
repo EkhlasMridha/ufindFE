@@ -20,14 +20,23 @@ export class ConfirmationStatusService {
       ...token.default,
       ...token.config,
     };
+    this.modalConfig = this.verifyConfig(this.modalConfig);
     console.log(this.modalConfig);
   }
 
   private applyConfig(config: Partial<ModalConfig>) {
+    config = this.verifyConfig(config);
     this.modalConfig = {
       ...this.modalConfig,
       ...config,
     };
+  }
+
+  private verifyConfig(config: Partial<ModalConfig>) {
+    if (config.isLoader) {
+      config.modalWidth = 'auto';
+    }
+    return config;
   }
 
   private openDialog(config: Partial<ModalConfig>) {

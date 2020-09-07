@@ -14,12 +14,13 @@ import {
 })
 export class ConfirmationStatusComponent implements OnInit {
   modalConfig: Partial<ModalConfig>;
+  typeColor: string;
   constructor(
     @Inject(MAT_DIALOG_DATA) config: Partial<ModalConfig>,
     private ref: MatDialogRef<ConfirmationStatusService>
   ) {
     this.modalConfig = config;
-    console.log(this.modalConfig);
+    this.typeColor = this.setModalColor(this.modalConfig);
   }
 
   ngOnInit(): void {}
@@ -31,5 +32,17 @@ export class ConfirmationStatusComponent implements OnInit {
   secodaryButton(event) {
     this.modalConfig.secondaryEvent();
     this.ref.close();
+  }
+
+  private setModalColor(config: Partial<ModalConfig>) {
+    if (config.type == 'general') {
+      return config.generalColor;
+    } else if (config.type == 'success') {
+      return config.successColor;
+    } else if (config.type == 'warn') {
+      return config.warnColor;
+    } else if (config.type == 'error') {
+      return config.errorColor;
+    }
   }
 }

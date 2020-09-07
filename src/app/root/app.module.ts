@@ -14,6 +14,7 @@ import { NonavLayoutComponent } from './components/nonav-layout/nonav-layout.com
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
 
 export function initializer(domainService: DomainService) {
   return () => {
@@ -43,6 +44,7 @@ export function initializer(domainService: DomainService) {
     FlexLayoutModule,
     MatButtonModule,
     AppLoaderModule,
+    HttpClientModule,
   ],
   providers: [
     {

@@ -1,19 +1,31 @@
 import { InjectionToken } from '@angular/core';
 
 export interface ModalConfig {
+  warnColor: string;
+  successColor: string;
+  errorColor: string;
+  generalColor: string;
+  type: 'success' | 'warn' | 'error' | 'general';
+  matIcon: string;
+  localIcon: string;
   headerText: string;
   description: string;
   primaryButtonName: string;
   secondaryButtonName: string;
   modalWidth: string;
-  singleButton: boolean;
+  disableClose: boolean;
   primaryEvent: () => any;
   secondaryEvent: () => any;
 }
 
 export const DefaultConfig: Partial<ModalConfig> = {
+  successColor: '#009900 ',
+  errorColor: '#ff0000 ',
+  warnColor: '#FFCC00 ',
+  generalColor: '#242424',
+  type: 'general',
   modalWidth: 'auto',
-  singleButton: false,
+  disableClose: false,
   primaryEvent: () => {},
   secondaryEvent: () => {},
 };

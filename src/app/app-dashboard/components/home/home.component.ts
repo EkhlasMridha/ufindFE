@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationStatusService } from 'src/app/shared-modules/confirmation-status-modal/services/confirmation-status.service';
+import { IconService } from 'src/app/shared-services/utilities/icon.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,12 @@ import { ConfirmationStatusService } from 'src/app/shared-modules/confirmation-s
 })
 export class HomeComponent implements OnInit {
   modalRef: any;
-  constructor(private confirmationService: ConfirmationStatusService) {}
+  constructor(
+    private confirmationService: ConfirmationStatusService,
+    private iconService: IconService
+  ) {
+    this.iconService.loadIcons(['like']);
+  }
 
   ngOnInit(): void {}
 
@@ -17,6 +23,10 @@ export class HomeComponent implements OnInit {
       headerText: 'How are you guys?',
       description:
         'This is a test generic modal system for all possible cases.',
+      primaryButtonName: 'Yes',
+      secondaryButtonName: 'No',
+      localIcon: 'like',
+      type: 'success',
       primaryEvent: this.primaryButton,
       secondaryEvent: this.secondaryButton,
     });

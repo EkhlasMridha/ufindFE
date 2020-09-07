@@ -34,6 +34,7 @@ export class ConfirmationStatusService {
     this.applyConfig(config);
     return this.dialog.open(ConfirmationStatusComponent, {
       width: this.modalConfig.modalWidth,
+      disableClose: this.modalConfig.disableClose,
       data: this.modalConfig,
     });
   }

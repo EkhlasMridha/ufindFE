@@ -11,7 +11,7 @@ export class IconService {
     private sanitizer: DomSanitizer
   ) {}
 
-  private iconsPath: string = '../../../../assets/icons';
+  private iconsPath: string = '../../../assets/icons';
 
   loadIcons(iconList: string[]) {
     this.registerIcons(iconList);

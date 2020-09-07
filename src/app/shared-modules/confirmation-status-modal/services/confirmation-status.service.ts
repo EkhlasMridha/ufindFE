@@ -21,7 +21,6 @@ export class ConfirmationStatusService {
       ...token.config,
     };
     this.modalConfig = this.verifyConfig(this.modalConfig);
-    console.log(this.modalConfig);
   }
 
   private applyConfig(config: Partial<ModalConfig>) {

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER, PLATFORM_ID } from '@angular/core';
-import { RootRoutingModule } from '../root-routing/root-routing.module';
+import { RootRoutingModule } from '../root-routing/RT-route-system/root-routing.module';
 import { AppComponent } from './components/root-component/app.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

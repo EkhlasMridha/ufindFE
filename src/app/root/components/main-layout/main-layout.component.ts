@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 import { NavTracerService } from 'src/app/shared-services/utilities/nav-tracer.service';
 import { DomainService } from 'src/app/shared-services/utilities/domain.service';
 

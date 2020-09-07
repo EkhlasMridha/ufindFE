@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +7,5 @@ import { filter } from 'rxjs/operators';
 })
 export class AppComponent {
   title = 'root-line';
-  constructor(private routes: ActivatedRoute, private router: Router) {}
+  constructor() {}
 }

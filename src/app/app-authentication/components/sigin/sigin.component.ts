@@ -66,6 +66,7 @@ export class SiginComponent implements OnInit {
 
   onSubmit() {
     if (!this.loginForm.valid) {
+      this.formService.checkFormStatus(this.loginForm);
       return;
     }
     const result = Object.assign({}, this.loginForm.value);

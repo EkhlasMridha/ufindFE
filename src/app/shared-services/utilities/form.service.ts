@@ -17,6 +17,7 @@ export class FormService {
       errorObservers[field] = formGorup.controls[field].statusChanges.pipe(
         filter((status) => status === 'INVALID'),
         map(() => {
+          console.log(formGorup.controls[field].errors);
           if (!formGorup.controls[field].errors) {
             return null;
           }
@@ -26,6 +27,12 @@ export class FormService {
           }
         })
       );
+    });
+  }
+
+  checkFormStatus(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach((field) => {
+      formGroup.controls[field].updateValueAndValidity();
     });
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges, EventEmitter } from '@angular/core';
 import { trigger, style, transition, animate } from '@angular/animations';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SignUpModel } from '../../models/signup.model';
@@ -26,12 +26,12 @@ export class SignupComponent implements OnInit {
   signUpModel: SignUpModel;
 
   errorObserver = {
-    firstName: '',
-    lastName: '',
-    userName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+    firstName: null,
+    lastName: null,
+    userName: null,
+    email: null,
+    password: null,
+    confirmPassword: null,
   };
 
   constructor(
@@ -142,6 +142,7 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
     if (!this.signUpForm.valid) {
+      this.formService.checkFormStatus(this.signUpForm);
       return;
     }
     const result = Object.assign({}, this.signUpForm.value);

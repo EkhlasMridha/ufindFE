@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SignUpModel } from '../../models/signup.model';
 import { filter, map } from 'rxjs/operators';
 import { FormService } from 'src/app/shared-services/utilities/form.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -36,7 +37,8 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private formService: FormService
+    private formService: FormService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -146,6 +148,11 @@ export class SignupComponent implements OnInit {
     }
     const result = Object.assign({}, this.signUpForm.value);
     this.signUpModel = result;
+    this.signUpModel.passwordHash = result.password;
     console.log(this.signUpModel);
+
+    this.authService.signUp(this.signUpModel).subscribe((res) => {
+      console.log(res);
+    });
   }
 }

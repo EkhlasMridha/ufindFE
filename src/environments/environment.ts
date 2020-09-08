@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   AppName: 'Root-Line',
+  ApiHost: 'http://localhost:6147/v1/',
 };
 
 /*

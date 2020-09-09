@@ -17,7 +17,6 @@ export class FormService {
       errorObservers[field] = formGorup.controls[field].statusChanges.pipe(
         filter((status) => status === 'INVALID'),
         map(() => {
-          console.log(formGorup.controls[field].errors);
           if (!formGorup.controls[field].errors) {
             return null;
           }

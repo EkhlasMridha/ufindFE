@@ -46,6 +46,7 @@ export class SignupComponent implements OnInit {
       this.errorObserver,
       this.generateErrors
     );
+    this.signUpForm.controls['confirmPassword'].disable();
   }
 
   generateErrors(name: string, owner: string) {
@@ -78,7 +79,7 @@ export class SignupComponent implements OnInit {
         if (name == 'required') {
           return 'Password is required';
         } else {
-          return 'Must contain both uppercase, lowercase letter and minimum length 6';
+          return 'Must contain both uppercase, lowercase letter and mini length 6, max 12';
         }
       case 'confirmPassword':
         if (name == 'required') {
@@ -118,9 +119,27 @@ export class SignupComponent implements OnInit {
         confirmPassword: ['', Validators.required],
       },
       {
-        validators: this.MustMatch('password', 'confirmPassword'),
+        validators: [
+          this.MustMatch('password', 'confirmPassword'),
+          this.shoudDisable('password', 'confirmPassword'),
+        ],
       }
     );
+  }
+
+  shoudDisable(value1: string, value2: string) {
+    return (formGroup: FormGroup) => {
+      const firstControl = formGroup.controls[value1];
+      const secondControl = formGroup.controls[value2];
+
+      firstControl.valueChanges.subscribe((res) => {
+        if (res.length < 6 || firstControl.errors) {
+          secondControl.disable({ emitEvent: false, onlySelf: true });
+        } else {
+          secondControl.enable({ emitEvent: false, onlySelf: true });
+        }
+      });
+    };
   }
 
   MustMatch(value1: string, value2: string) {
@@ -128,12 +147,12 @@ export class SignupComponent implements OnInit {
       const firstControl = formGroup.controls[value1];
       const secondControl = formGroup.controls[value2];
 
-      if (secondControl.errors && secondControl.errors.notMatch) {
+      if (secondControl.errors && secondControl.errors.mustMatch) {
         return;
       }
 
       if (firstControl.value !== secondControl.value) {
-        return secondControl.setErrors({ notMatch: true });
+        return secondControl.setErrors({ mustMatch: true });
       } else {
         secondControl.setErrors(null);
       }

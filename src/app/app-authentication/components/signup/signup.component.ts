@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges, EventEmitter } from '@angular/core';
 import { trigger, style, transition, animate } from '@angular/animations';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SignUpModel } from '../../models/signup.model';
@@ -27,12 +27,12 @@ export class SignupComponent implements OnInit {
   signUpModel: SignUpModel;
 
   errorObserver = {
-    firstName: '',
-    lastName: '',
-    userName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+    firstName: null,
+    lastName: null,
+    userName: null,
+    email: null,
+    password: null,
+    confirmPassword: null,
   };
 
   constructor(
@@ -48,6 +48,7 @@ export class SignupComponent implements OnInit {
       this.errorObserver,
       this.generateErrors
     );
+    this.signUpForm.controls['confirmPassword'].disable();
   }
 
   generateErrors(name: string, owner: string) {
@@ -80,7 +81,7 @@ export class SignupComponent implements OnInit {
         if (name == 'required') {
           return 'Password is required';
         } else {
-          return 'Must contain both uppercase, lowercase letter and minimum length 6';
+          return 'Must contain both uppercase, lowercase letter and mini length 6, max 12';
         }
       case 'confirmPassword':
         if (name == 'required') {
@@ -120,9 +121,27 @@ export class SignupComponent implements OnInit {
         confirmPassword: ['', Validators.required],
       },
       {
-        validators: this.MustMatch('password', 'confirmPassword'),
+        validators: [
+          this.MustMatch('password', 'confirmPassword'),
+          this.shoudDisable('password', 'confirmPassword'),
+        ],
       }
     );
+  }
+
+  shoudDisable(value1: string, value2: string) {
+    return (formGroup: FormGroup) => {
+      const firstControl = formGroup.controls[value1];
+      const secondControl = formGroup.controls[value2];
+
+      firstControl.valueChanges.subscribe((res) => {
+        if (res.length < 6 || firstControl.errors) {
+          secondControl.disable({ emitEvent: false, onlySelf: true });
+        } else {
+          secondControl.enable({ emitEvent: false, onlySelf: true });
+        }
+      });
+    };
   }
 
   MustMatch(value1: string, value2: string) {
@@ -130,12 +149,12 @@ export class SignupComponent implements OnInit {
       const firstControl = formGroup.controls[value1];
       const secondControl = formGroup.controls[value2];
 
-      if (secondControl.errors && secondControl.errors.notMatch) {
+      if (secondControl.errors && secondControl.errors.mustMatch) {
         return;
       }
 
       if (firstControl.value !== secondControl.value) {
-        return secondControl.setErrors({ notMatch: true });
+        return secondControl.setErrors({ mustMatch: true });
       } else {
         secondControl.setErrors(null);
       }
@@ -144,6 +163,7 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
     if (!this.signUpForm.valid) {
+      this.formService.checkFormStatus(this.signUpForm);
       return;
     }
     const result = Object.assign({}, this.signUpForm.value);

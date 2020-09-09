@@ -28,4 +28,10 @@ export class FormService {
       );
     });
   }
+
+  checkFormStatus(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach((field) => {
+      formGroup.controls[field].updateValueAndValidity();
+    });
+  }
 }

@@ -14,8 +14,9 @@ import { NonavLayoutComponent } from './components/nonav-layout/nonav-layout.com
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { interceptorProvider } from '../shared-services/interceptors/interceptor.provider';
+import { ApiInterceptorService } from '../shared-services/interceptors/api-interceptor.service';
 
 export function initializer(domainService: DomainService) {
   return () => {
@@ -48,7 +49,11 @@ export function initializer(domainService: DomainService) {
     HttpClientModule,
   ],
   providers: [
-    interceptorProvider,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptorService,
+      multi: true,
+    },
     {
       provide: APP_INITIALIZER,
       useFactory: initializer,

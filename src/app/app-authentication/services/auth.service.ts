@@ -10,9 +10,6 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   signUp(payload: SignUpModel) {
-    return this.http.post(
-      DomainService.domains.apiHost + 'identity/signup',
-      payload
-    );
+    return this.http.post('identity/signup', payload);
   }
 }

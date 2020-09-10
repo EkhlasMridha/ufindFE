@@ -17,6 +17,7 @@ export class ApiInterceptorService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
+    console.log(req.url);
     let request = req.clone({
       url: DomainService.domains.apiHost + req.url,
     });

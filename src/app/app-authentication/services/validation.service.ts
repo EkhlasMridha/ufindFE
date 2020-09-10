@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { DomainService } from 'src/app/shared-services/utilities/domain.service';
 import { debounceTime, map } from 'rxjs/operators';
 
 @Injectable({

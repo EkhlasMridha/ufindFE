@@ -15,6 +15,7 @@ import { MainLayoutComponent } from './components/main-layout/main-layout.compon
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import { interceptorProvider } from '../shared-services/interceptors/interceptor.provider';
 
 export function initializer(domainService: DomainService) {
   return () => {
@@ -47,6 +48,7 @@ export function initializer(domainService: DomainService) {
     HttpClientModule,
   ],
   providers: [
+    interceptorProvider,
     {
       provide: APP_INITIALIZER,
       useFactory: initializer,

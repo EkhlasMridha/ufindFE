@@ -190,6 +190,7 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
     if (!this.signUpForm.valid) {
+      console.log('invalid');
       this.formService.checkFormStatus(this.signUpForm);
       return;
     }

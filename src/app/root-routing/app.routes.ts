@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AuthGuardService } from '../shared-services/route-guards/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -15,6 +16,7 @@ const routes: Routes = [
     data: {
       breadCrumb: 'Dashboard',
     },
+    canActivateChild: [AuthGuardService],
   },
 ];
 

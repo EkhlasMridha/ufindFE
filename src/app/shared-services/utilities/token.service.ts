@@ -48,4 +48,12 @@ export class TokenService {
 
     return this.http.post('identity/refresh', this.getToken());
   }
+
+  hasToken() {
+    if (this.getToken() == null) {
+      return false;
+    }
+
+    return true;
+  }
 }

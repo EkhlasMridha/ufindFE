@@ -6,9 +6,8 @@ import {
   Validators,
   FormControl,
 } from '@angular/forms';
-import { filter, map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 import { FormService } from 'src/app/shared-services/utilities/form.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-sigin',
@@ -36,7 +35,8 @@ export class SiginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private formService: FormService
+    private formService: FormService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -71,5 +71,9 @@ export class SiginComponent implements OnInit {
     }
     const result = Object.assign({}, this.loginForm.value);
     console.log(result);
+
+    this.authService.signin(result).subscribe((res) => {
+      console.log(res);
+    });
   }
 }

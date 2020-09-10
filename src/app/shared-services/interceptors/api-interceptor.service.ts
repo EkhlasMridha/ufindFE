@@ -17,10 +17,14 @@ export class ApiInterceptorService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log(req.url);
+    if (req.url.search(/^.*(.svg)$/) >= 0) {
+      console.log(req.url);
+      return next.handle(req);
+    }
     let request = req.clone({
       url: DomainService.domains.apiHost + req.url,
     });
+    console.log('api');
 
     return next.handle(request);
   }

@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
     private confirmationService: ConfirmationStatusService,
     private iconService: IconService
   ) {
-    this.iconService.loadIcons(['like']);
+    // this.iconService.loadIcons(['like']);
   }
 
   ngOnInit(): void {}

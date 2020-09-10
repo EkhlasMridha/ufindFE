@@ -17,6 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { interceptorProvider } from '../shared-services/interceptors/interceptor.provider';
 import { ApiInterceptorService } from '../shared-services/interceptors/api-interceptor.service';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 export function initializer(domainService: DomainService) {
   return () => {
@@ -41,14 +42,16 @@ export function initializer(domainService: DomainService) {
   imports: [
     BrowserModule,
     RootRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     FlexLayoutModule,
     MatButtonModule,
     AppLoaderModule,
-    HttpClientModule,
   ],
   providers: [
+    JwtHelperService,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiInterceptorService,

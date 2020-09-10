@@ -1,9 +1,17 @@
 import { Component, OnInit, SimpleChanges, EventEmitter } from '@angular/core';
 import { trigger, style, transition, animate } from '@angular/animations';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  AbstractControl,
+  ValidationErrors,
+} from '@angular/forms';
 import { SignUpModel } from '../../models/signup.model';
 import { filter, map } from 'rxjs/operators';
 import { FormService } from 'src/app/shared-services/utilities/form.service';
+import { Observable } from 'rxjs';
+import { ValidationService } from '../../services/validation.service';
 
 @Component({
   selector: 'app-signup',
@@ -36,7 +44,8 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private formService: FormService
+    private formService: FormService,
+    private validationService: ValidationService
   ) {}
 
   ngOnInit(): void {
@@ -66,12 +75,16 @@ export class SignupComponent implements OnInit {
       case 'userName':
         if (name == 'required') {
           return 'User name is required';
+        } else if (name == 'isExists') {
+          return 'User name is already taken';
         } else {
           return 'Invalid name';
         }
       case 'email':
         if (name == 'required') {
           return 'Email is required';
+        } else if (name == 'isExists') {
+          return 'Already has an account with this email';
         } else {
           return 'Invalid email';
         }
@@ -104,10 +117,12 @@ export class SignupComponent implements OnInit {
         userName: [
           '',
           Validators.compose([Validators.minLength(3), Validators.required]),
+          this.validateUserName.bind(this),
         ],
         email: [
           '',
           Validators.compose([Validators.required, Validators.email]),
+          this.validateEmail.bind(this),
         ],
         password: [
           '',
@@ -127,6 +142,18 @@ export class SignupComponent implements OnInit {
         ],
       }
     );
+  }
+
+  validateUserName({
+    value,
+  }: AbstractControl): Observable<ValidationErrors | null> {
+    return this.validationService.isUserNameAvailable(value);
+  }
+
+  validateEmail({
+    value,
+  }: AbstractControl): Observable<ValidationErrors | null> {
+    return this.validationService.isEmailExists(value);
   }
 
   shoudDisable(value1: string, value2: string) {

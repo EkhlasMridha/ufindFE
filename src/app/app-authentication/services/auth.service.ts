@@ -11,7 +11,7 @@ export class AuthService {
 
   signUp(payload: SignUpModel) {
     return this.http.post(
-      DomainService.domains.ApiHost + 'identity/signup',
+      DomainService.domains.apiHost + 'identity/signup',
       payload
     );
   }

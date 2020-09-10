@@ -52,11 +52,7 @@ export function initializer(domainService: DomainService) {
   providers: [
     JwtHelperService,
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ApiInterceptorService,
-      multi: true,
-    },
+    interceptorProvider,
     {
       provide: APP_INITIALIZER,
       useFactory: initializer,

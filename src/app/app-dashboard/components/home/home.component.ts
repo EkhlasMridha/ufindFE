@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationStatusService } from 'src/app/shared-modules/confirmation-status-modal/services/confirmation-status.service';
 import { IconService } from 'src/app/shared-services/utilities/icon.service';
+import { TesService } from '../../services/tes.service';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +12,14 @@ export class HomeComponent implements OnInit {
   modalRef: any;
   constructor(
     private confirmationService: ConfirmationStatusService,
-    private iconService: IconService
+    private iconService: IconService,
+    private testService: TesService
   ) {
     // this.iconService.loadIcons(['like']);
+    this.testService.getData().subscribe((res) => {
+      console.log('result');
+      console.log(res);
+    });
   }
 
   ngOnInit(): void {}

@@ -8,7 +8,5 @@ import { IconService } from 'src/app/shared-services/utilities/icon.service';
 })
 export class AppComponent {
   title = 'root-line';
-  constructor(private iconService: IconService) {
-    this.iconService.loadIcons(['signout']);
-  }
+  constructor() {}
 }

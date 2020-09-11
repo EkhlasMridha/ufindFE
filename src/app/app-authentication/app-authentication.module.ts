@@ -6,6 +6,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { SharedMaterialModule } from '../shared-modules/shared-materials/shared-material/shared-material.module';
 import { FormsMaterialModule } from '../shared-modules/shared-materials/forms-material/forms-material.module';
 import { AuthGuardService } from '../shared-services/route-guards/auth-guard.service';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -24,10 +25,18 @@ const routes: Routes = [
     },
     canActivate: [AuthGuardService],
   },
+  {
+    path: 'reset-password',
+    component: ResetPasswordComponent,
+    data: {
+      breadCrumb: 'Password reset',
+    },
+    canActivate: [AuthGuardService],
+  },
 ];
 
 @NgModule({
-  declarations: [SiginComponent, SignupComponent],
+  declarations: [SiginComponent, SignupComponent, ResetPasswordComponent],
   imports: [
     CommonModule,
     SharedMaterialModule,

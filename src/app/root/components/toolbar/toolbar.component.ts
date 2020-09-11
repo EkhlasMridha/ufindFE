@@ -11,8 +11,11 @@ import { IconService } from 'src/app/shared-services/utilities/icon.service';
 export class ToolbarComponent implements OnInit {
   constructor(
     private userManagerService: UserManagerService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private iconService: IconService
+  ) {
+    this.iconService.loadIcons(['signout']);
+  }
 
   ngOnInit(): void {}
 

@@ -20,6 +20,11 @@ export class TokenService {
     localStorage.setItem(this.refreshToken, token.refreshToken);
   }
 
+  removeToken() {
+    localStorage.removeItem(this.accessToken);
+    localStorage.removeItem(this.refreshToken);
+  }
+
   getToken(): TokenModel {
     let access = localStorage.getItem(this.accessToken);
     let refresh = localStorage.getItem(this.refreshToken);

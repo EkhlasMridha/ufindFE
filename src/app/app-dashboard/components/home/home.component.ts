@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
     private iconService: IconService,
     private testService: TesService
   ) {
-    // this.iconService.loadIcons(['like']);
+    this.iconService.loadIcons(['like']);
     this.testService.getData().subscribe((res) => {
       console.log('result');
       console.log(res);

@@ -18,6 +18,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { interceptorProvider } from '../shared-services/interceptors/interceptor.provider';
 import { ApiInterceptorService } from '../shared-services/interceptors/api-interceptor.service';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { MatIconModule } from '@angular/material/icon';
 
 export function initializer(domainService: DomainService) {
   return () => {
@@ -48,6 +49,7 @@ export function initializer(domainService: DomainService) {
     FlexLayoutModule,
     MatButtonModule,
     AppLoaderModule,
+    MatIconModule,
   ],
   providers: [
     JwtHelperService,

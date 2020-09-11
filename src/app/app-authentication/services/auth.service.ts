@@ -16,6 +16,7 @@ import {
 } from 'src/app/shared-services/utilities/token.service';
 import { throwError, of } from 'rxjs';
 import { ErrorHandlerService } from 'src/app/shared-services/utilities/error-handler.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -24,28 +25,27 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private tokenService: TokenService,
-    private erroHandler: ErrorHandlerService
+    private router: Router
   ) {}
 
   signUp(payload: SignUpModel) {
     return this.http.post('identity/signup', payload).pipe(
-      take(1),
+      retry(3),
       catchError((err) => {
         return throwError(err);
-      }),
-      retryWhen(this.erroHandler.hanldeRetry())
+      })
     );
   }
 
   signin(payload: any) {
     return this.http.post<TokenModel>('identity/login', payload).pipe(
-      take(1),
+      retry(3),
       catchError((err) => {
         return throwError(err);
       }),
-      retryWhen(this.erroHandler.hanldeRetry()),
       tap((res) => {
         this.tokenService.storeToken(res);
+        this.router.navigate(['']);
       })
     );
   }

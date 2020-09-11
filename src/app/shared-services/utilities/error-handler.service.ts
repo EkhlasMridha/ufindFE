@@ -18,7 +18,7 @@ export class ErrorHandlerService {
           return throwError(result);
         }),
         delay(1000),
-        take(5)
+        take(4)
       )
     );
   }

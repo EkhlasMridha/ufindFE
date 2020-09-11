@@ -1,6 +1,11 @@
 const authRoutes: string[] = ['/dashboard'];
 
-const NonAuthRoutes: string[] = ['/signin', '/signout', '/reset-password'];
+const NonAuthRoutes: string[] = [
+  '/signin',
+  '/signout',
+  '/reset-password',
+  '/forgot-password',
+];
 
 export function isAuhtRoute(url: string) {
   let check = authRoutes.includes(url);

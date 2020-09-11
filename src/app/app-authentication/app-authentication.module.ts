@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SignupComponent } from './components/signup/signup.component';
 import { SharedMaterialModule } from '../shared-modules/shared-materials/shared-material/shared-material.module';
 import { FormsMaterialModule } from '../shared-modules/shared-materials/forms-material/forms-material.module';
+import { AuthGuardService } from '../shared-services/route-guards/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
     data: {
       breadCrumb: 'SignIn',
     },
+    canActivate: [AuthGuardService],
   },
   {
     path: 'signup',
@@ -20,6 +22,7 @@ const routes: Routes = [
     data: {
       breadCrumb: 'SignUp',
     },
+    canActivate: [AuthGuardService],
   },
 ];
 

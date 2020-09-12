@@ -29,7 +29,7 @@ export class TokenInterceptorService implements HttpInterceptor {
     if (this.tokenService.getToken()) {
       req = this.addToken(req, this.tokenService.getToken());
     }
-
+    // debugger;
     return next.handle(req).pipe(
       catchError((res) => {
         if (res instanceof HttpErrorResponse && res.status == 401) {
@@ -67,6 +67,7 @@ export class TokenInterceptorService implements HttpInterceptor {
           this.isRefreshing = false;
           console.log('refresh');
           console.log(token);
+          this.tokenService.storeToken(token);
           this.RefreshTokenSubject.next(token.accessToken);
           return next.handle(this.addToken(request, token));
         })

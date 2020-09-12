@@ -22,7 +22,8 @@ export class AuthGuardService implements CanActivate, CanActivateChild {
     state: RouterStateSnapshot
   ): boolean | UrlTree | Observable<boolean | UrlTree> {
     if (!this.tokenService.hasToken()) {
-      if (permission.isFreeRoute(state.url)) {
+      console.log(state);
+      if (!permission.isAuhtRoute(state.url)) {
         return true;
       }
       this.router.navigate(['signin']);

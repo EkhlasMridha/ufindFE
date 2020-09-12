@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Routes } from '@angular/router';
 import { FormService } from 'src/app/shared-services/utilities/form.service';
+import { ResetPassWord } from '../../models/reset-password.model';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-reset-password',
@@ -10,12 +13,15 @@ import { FormService } from 'src/app/shared-services/utilities/form.service';
 export class ResetPasswordComponent implements OnInit {
   resetForm: FormGroup;
   errorObserver$ = {
+    email: null,
     passwordHash: null,
     confirmPassword: null,
   };
   constructor(
     private formBuilder: FormBuilder,
-    private formService: FormService
+    private formService: FormService,
+    private routes: ActivatedRoute,
+    private authService: AuthService
   ) {
     this.resetForm = this.createForm();
   }
@@ -28,8 +34,20 @@ export class ResetPasswordComponent implements OnInit {
     this.resetForm.controls['confirmPassword'].disable();
   }
 
+  getTokenFromParam(): string {
+    let token = this.routes.snapshot.queryParams.token;
+    return token;
+  }
+
   errorGenerator(errorName: string, owner: string) {
+    console.log(owner);
     switch (owner) {
+      case 'email':
+        if (errorName == 'required') {
+          return 'Email is required';
+        } else {
+          return 'Please enter valid mail';
+        }
       case 'passwordHash':
         if (errorName == 'required') {
           return 'Password is required';
@@ -48,6 +66,10 @@ export class ResetPasswordComponent implements OnInit {
   createForm() {
     return this.formBuilder.group(
       {
+        email: [
+          '',
+          Validators.compose([Validators.required, Validators.email]),
+        ],
         passwordHash: [
           '',
           Validators.compose([
@@ -106,7 +128,12 @@ export class ResetPasswordComponent implements OnInit {
       this.formService.checkFormStatus(this.resetForm);
       return;
     }
-    const result = Object.assign({}, this.resetForm.value);
+    const result: ResetPassWord = Object.assign({}, this.resetForm.value);
+    result.resetToken = this.getTokenFromParam();
     console.log(result);
+
+    this.authService.resetPassword(result).subscribe((res) => {
+      console.log(res);
+    });
   }
 }

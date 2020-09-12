@@ -13,7 +13,9 @@ export class FormService {
     errorObservers: object,
     errorTypeGenerator: (type: string, owner: string) => any
   ) {
+    // console.log(formGorup.controls);
     Object.keys(formGorup.controls).forEach((field) => {
+      // console.log(field);
       errorObservers[field] = formGorup.controls[field].statusChanges.pipe(
         filter((status) => status === 'INVALID'),
         map(() => {
@@ -21,6 +23,7 @@ export class FormService {
             return null;
           }
           for (let errName in formGorup.controls[field].errors) {
+            // console.log(errName);
             let errorType = errorTypeGenerator(errName, field.toString());
             return errorType;
           }
@@ -31,6 +34,7 @@ export class FormService {
 
   checkFormStatus(formGroup: FormGroup) {
     Object.keys(formGroup.controls).forEach((field) => {
+      console.log(field);
       formGroup.controls[field].updateValueAndValidity();
     });
   }

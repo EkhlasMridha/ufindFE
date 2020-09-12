@@ -1,19 +1,16 @@
 const authRoutes: string[] = ['/dashboard'];
 
-const NonAuthRoutes: string[] = [
-  '/signin',
-  '/signout',
-  '/reset-password',
-  '/forgot-password',
-];
-
 export function isAuhtRoute(url: string) {
-  let check = authRoutes.includes(url);
+  let refinedRoute = getRifinedRoute(url);
+  console.log('refined url: ' + refinedRoute);
+  let check = authRoutes.includes(refinedRoute);
 
   return check;
 }
 
-export function isFreeRoute(url: string) {
-  let check = NonAuthRoutes.includes(url);
-  return check;
+function getRifinedRoute(url: string) {
+  let route = url.split('?');
+
+  let refined = route[0];
+  return refined;
 }

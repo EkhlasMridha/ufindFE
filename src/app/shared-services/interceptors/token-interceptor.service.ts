@@ -29,11 +29,12 @@ export class TokenInterceptorService implements HttpInterceptor {
     if (this.tokenService.getToken()) {
       req = this.addToken(req, this.tokenService.getToken());
     }
-    // debugger;
+
     return next.handle(req).pipe(
       catchError((res) => {
         if (res instanceof HttpErrorResponse && res.status == 401) {
           if (res.error == DomainService.domains.RefreshError) {
+            this.tokenService.removeToken();
             this.router.navigate(['signin']);
             return null;
           }

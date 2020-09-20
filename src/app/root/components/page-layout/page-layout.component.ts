@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { MatToolbar } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-page-layout',

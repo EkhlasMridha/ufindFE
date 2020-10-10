@@ -1,4 +1,5 @@
 import { InjectionToken } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 import { DialogPosition } from '@angular/material/dialog';
 
 export interface ModalConfig {
@@ -18,6 +19,7 @@ export interface ModalConfig {
   isLoader: boolean;
   loaderText: string;
   panelClass: string | string[];
+  color: ThemePalette;
   primaryEvent: (event) => any;
   secondaryEvent: (event) => any;
 }
@@ -32,6 +34,7 @@ export const DefaultConfig: Partial<ModalConfig> = {
   disableClose: false,
   isLoader: false,
   loaderText: 'Loading ...',
+  color: 'primary',
   primaryEvent: () => {},
   secondaryEvent: () => {},
 };

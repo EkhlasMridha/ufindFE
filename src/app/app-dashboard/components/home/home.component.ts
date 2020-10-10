@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit {
       secondaryButtonName: 'No',
       localIcon: 'like',
       type: 'success',
+      color: 'accent',
       primaryEvent: this.primaryButton,
       secondaryEvent: this.secondaryButton,
     });
@@ -48,13 +49,16 @@ export class HomeComponent implements OnInit {
 
   runLoader() {
     this.confirmationService.openConfirmationModal({
-      headerText: 'How are you guys all?',
-      primaryButtonName: 'Yes',
-      secondaryButtonName: 'No',
-      localIcon: 'like',
-      type: 'success',
-      primaryEvent: this.primaryButton,
-      secondaryEvent: this.secondaryButton,
+      // headerText: 'How are you guys all?',
+      // primaryButtonName: 'Yes',
+      // secondaryButtonName: 'No',
+      // localIcon: 'like',
+      // type: 'success',
+      // color: 'warn',
+      // primaryEvent: this.primaryButton,
+      // secondaryEvent: this.secondaryButton,
+      isLoader: true,
+      color: 'warn',
     });
   }
 }

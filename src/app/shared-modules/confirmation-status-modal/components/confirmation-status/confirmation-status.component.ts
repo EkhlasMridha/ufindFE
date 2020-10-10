@@ -1,19 +1,14 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ConfirmationStatusService } from '../../services/confirmation-status.service';
-import {
-  CONFIRMATION_MODAL_CONFIG,
-  DefaultConfig,
-  ModalConfig,
-  ModalToken,
-} from '../../configs/modal.config';
+import { ModalConfig } from '../../configs/modal.config';
 
 @Component({
   selector: 'app-confirmation-status',
   templateUrl: './confirmation-status.component.html',
   styleUrls: ['./confirmation-status.component.scss'],
 })
-export class ConfirmationStatusComponent implements OnInit {
+export class ConfirmationStatusComponent {
   modalConfig: Partial<ModalConfig>;
   typeColor: string;
   constructor(
@@ -23,8 +18,6 @@ export class ConfirmationStatusComponent implements OnInit {
     this.modalConfig = config;
     this.typeColor = this.setModalColor(this.modalConfig);
   }
-
-  ngOnInit(): void {}
 
   primaryButton(event) {
     this.modalConfig.primaryEvent(event);

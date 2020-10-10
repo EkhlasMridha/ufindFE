@@ -1,4 +1,5 @@
 import { InjectionToken } from '@angular/core';
+import { DialogPosition } from '@angular/material/dialog';
 
 export interface ModalConfig {
   warnColor: string;
@@ -16,6 +17,7 @@ export interface ModalConfig {
   disableClose: boolean;
   isLoader: boolean;
   loaderText: string;
+  panelClass: string | string[];
   primaryEvent: (event) => any;
   secondaryEvent: (event) => any;
 }

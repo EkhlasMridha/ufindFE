@@ -1,8 +1,9 @@
-import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ConfirmationStatusService } from '../../services/confirmation-status.service';
 import {
   CONFIRMATION_MODAL_CONFIG,
+  DefaultConfig,
   ModalConfig,
   ModalToken,
 } from '../../configs/modal.config';
@@ -26,11 +27,11 @@ export class ConfirmationStatusComponent implements OnInit {
   ngOnInit(): void {}
 
   primaryButton(event) {
-    this.modalConfig.primaryEvent();
+    this.modalConfig.primaryEvent(event);
     this.ref.close();
   }
   secodaryButton(event) {
-    this.modalConfig.secondaryEvent();
+    this.modalConfig.secondaryEvent(event);
     this.ref.close();
   }
 

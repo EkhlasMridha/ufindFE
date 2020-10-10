@@ -45,4 +45,16 @@ export class HomeComponent implements OnInit {
   secondaryButton() {
     console.log('Customized callback 2');
   }
+
+  runLoader() {
+    this.confirmationService.openConfirmationModal({
+      headerText: 'How are you guys all?',
+      primaryButtonName: 'Yes',
+      secondaryButtonName: 'No',
+      localIcon: 'like',
+      type: 'success',
+      primaryEvent: this.primaryButton,
+      secondaryEvent: this.secondaryButton,
+    });
+  }
 }

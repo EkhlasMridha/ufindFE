@@ -6,6 +6,7 @@ import { Location } from '@angular/common';
   selector: 'app-not-found',
   templateUrl: './not-found.component.html',
   styleUrls: ['./not-found.component.scss'],
+  host: { class: 'primary-background' },
 })
 export class NotFoundComponent implements OnInit {
   constructor(private router: Router, private location: Location) {}

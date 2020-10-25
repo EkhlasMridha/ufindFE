@@ -20,6 +20,10 @@ import { ApiInterceptorService } from '../shared-services/interceptors/api-inter
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { MatIconModule } from '@angular/material/icon';
 import { ToastrModule } from 'ngx-toastr';
+import { SidenavLayoutComponent } from './components/sidenav-layout/sidenav-layout.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 export function initializer(domainService: DomainService) {
   return () => {
@@ -40,6 +44,7 @@ export function initializer(domainService: DomainService) {
     NonavLayoutComponent,
     MainLayoutComponent,
     NotFoundComponent,
+    SidenavLayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +57,9 @@ export function initializer(domainService: DomainService) {
     AppLoaderModule,
     MatIconModule,
     ToastrModule.forRoot(),
+    LayoutModule,
+    MatSidenavModule,
+    MatListModule,
   ],
   providers: [
     JwtHelperService,

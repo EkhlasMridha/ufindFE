@@ -1,0 +1,37 @@
+app-sidenav-layout{
+  display: flex;
+  flex: 1 1 auto;
+  height: 100%;
+  width: 100%;
+  .sidenav-container{
+    display: flex;
+    flex: 1 1 auto;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    mat-drawer {
+      border-right: unset !important;
+      box-shadow: 1px 0 4px -2px #242424;
+    }
+    .sidenav{
+      width: 250px;
+    }
+    .sub-container{
+      position: relative;
+      display: flex;
+      flex: 1 1 0%;
+      flex-direction: column;
+      width: 100%;
+      min-width: 0;
+      min-height: 0;
+      .scroller-container{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: auto;
+        flex: 1 1 0%;
+      }
+    }
+  }
+}

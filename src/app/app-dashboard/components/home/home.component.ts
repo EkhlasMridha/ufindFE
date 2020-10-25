@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { ConfirmationStatusService } from 'src/app/shared-modules/confirmation-status-modal/services/confirmation-status.service';
+import { RootLineToasterService } from 'src/app/shared-modules/root-line-toaster/services/root-line-toaster.service';
 import { IconService } from 'src/app/shared-services/utilities/icon.service';
 import { TesService } from '../../services/tes.service';
 
@@ -13,7 +14,9 @@ export class HomeComponent implements OnInit {
   constructor(
     private confirmationService: ConfirmationStatusService,
     private iconService: IconService,
-    private testService: TesService
+    private testService: TesService,
+    private toaster:RootLineToasterService,
+    private ref:ViewContainerRef
   ) {
     this.iconService.loadIcons(['like']);
     this.testService.getData().subscribe((res) => {
@@ -25,18 +28,18 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
 
   runCommand() {
-    this.confirmationService.openConfirmationModal({
-      headerText: 'How are you guys?',
-      description:
-        'This is a test generic modal system for all possible cases.',
-      primaryButtonName: 'Yes',
-      secondaryButtonName: 'No',
-      localIcon: 'like',
-      type: 'success',
-      color: 'accent',
-      primaryEvent: this.primaryButton,
-      secondaryEvent: this.secondaryButton,
-    });
+    // this.confirmationService.openConfirmationModal({
+    //   headerText: 'How are you guys?',
+    //   description:
+    //     'This is a test generic modal system for all possible cases.',
+    //   primaryButtonName: 'Yes',
+    //   secondaryButtonName: 'No',
+    //   localIcon: 'like',
+    //   type: 'success',
+    //   primaryEvent: this.primaryButton,
+    //   secondaryEvent: this.secondaryButton,
+    // });
+    this.toaster.dismis()
   }
 
   primaryButton() {
@@ -48,17 +51,10 @@ export class HomeComponent implements OnInit {
   }
 
   runLoader() {
-    this.confirmationService.openConfirmationModal({
-      // headerText: 'How are you guys all?',
-      // primaryButtonName: 'Yes',
-      // secondaryButtonName: 'No',
-      // localIcon: 'like',
-      // type: 'success',
-      // color: 'warn',
-      // primaryEvent: this.primaryButton,
-      // secondaryEvent: this.secondaryButton,
-      isLoader: true,
-      color: 'warn',
-    });
+    // this.confirmationService.openConfirmationModal({
+    //   isLoader: true,
+    //   color: 'warn',
+    // });
+    this.toaster.openSnackbar(this.ref);
   }
 }

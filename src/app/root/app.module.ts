@@ -19,6 +19,7 @@ import { interceptorProvider } from '../shared-services/interceptors/interceptor
 import { ApiInterceptorService } from '../shared-services/interceptors/api-interceptor.service';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { MatIconModule } from '@angular/material/icon';
+import { ToastrModule } from 'ngx-toastr';
 
 export function initializer(domainService: DomainService) {
   return () => {
@@ -50,6 +51,7 @@ export function initializer(domainService: DomainService) {
     MatButtonModule,
     AppLoaderModule,
     MatIconModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     JwtHelperService,

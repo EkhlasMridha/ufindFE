@@ -1,6 +1,5 @@
 import { InjectionToken } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
-import { DialogPosition } from '@angular/material/dialog';
 
 export interface ModalConfig {
   warnColor: string;

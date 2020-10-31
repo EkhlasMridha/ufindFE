@@ -1,6 +1,11 @@
 <mat-toolbar #matToolbar color="primary" fxLayout="row">
   <mat-toolbar-row>
-    <span>Root Line</span>
+    <div *ngIf="showMenuButton" fxLayout="row" fxLayoutAlign="start center">
+      <button mat-icon-button (click)="openDrawer($event)">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Root Line</span>
+    </div>
     <div class="spacer"></div>
     <div class="nav-items">
       <div

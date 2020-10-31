@@ -1,4 +1,4 @@
-import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserManagerService } from 'src/app/shared-services/user-manager.service';
 import { IconService } from 'src/app/shared-services/utilities/icon.service';
@@ -6,7 +6,7 @@ import { IconService } from 'src/app/shared-services/utilities/icon.service';
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.scss'],
+  styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
   @Input() showMenuButton: boolean;
@@ -30,4 +30,5 @@ export class ToolbarComponent implements OnInit {
   openDrawer(event) {
     this.menuButton.emit(event);
   }
+
 }

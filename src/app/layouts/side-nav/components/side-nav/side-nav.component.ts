@@ -1,27 +1,26 @@
-import { Component, ViewEncapsulation } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
-  selector: 'app-sidenav-layout',
-  templateUrl: './sidenav-layout.component.html',
-  styleUrls: ['./sidenav-layout.component.scss'],
+  selector: 'app-side-nav',
+  templateUrl: './side-nav.component.html',
+  styleUrls: ['./side-nav.component.scss'],
   encapsulation:ViewEncapsulation.None
 })
-export class SidenavLayoutComponent {
+export class SideNavComponent {
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  .pipe(
+    map(result => result.matches),
+    shareReplay()
+  );
 
   constructor (private breakpointObserver: BreakpointObserver) { }
-  
+
   openDrawer(drawer:MatDrawer) {
     drawer.toggle();
   }
-
 }

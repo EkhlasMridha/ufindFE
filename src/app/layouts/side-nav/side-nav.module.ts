@@ -7,6 +7,8 @@ import { MatListModule } from '@angular/material/list';
 import { RouterModule, Routes } from '@angular/router';
 import { ContentComponent } from './components/content/content.component';
 import * as nav from "../../root-routing/app.routes"
+import { MatIconModule } from '@angular/material/icon';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const routes: Routes = [
   {path:"",component:SideNavComponent,children:nav.getBusinessRoutes()}
@@ -19,6 +21,8 @@ const routes: Routes = [
     ToolbarModule,
     MatSidenavModule,
     MatListModule,
+    MatIconModule,
+    FlexLayoutModule,
     RouterModule.forChild(routes)
   ]
 })

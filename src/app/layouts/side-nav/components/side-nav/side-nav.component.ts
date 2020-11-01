@@ -1,8 +1,9 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { NavTracerService } from 'src/app/shared-services/utilities/nav-tracer.service';
 import { NavigationModel } from '../../config/navigation.model';
 
 @Component({
@@ -11,7 +12,7 @@ import { NavigationModel } from '../../config/navigation.model';
   styleUrls: ['./side-nav.component.scss'],
   encapsulation:ViewEncapsulation.None
 })
-export class SideNavComponent {
+export class SideNavComponent implements OnInit {
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
   .pipe(
@@ -19,10 +20,12 @@ export class SideNavComponent {
     shareReplay()
   );
 
+  activatedRoute: string = '';
+
   navigations: NavigationModel[] = [
     {
-      name: "Navigation 1",
-      route: "home",
+      name: "Dashboard",
+      route: "dashboard",
       matIcon:"home"
     },
     {
@@ -37,7 +40,12 @@ export class SideNavComponent {
     }
   ]
 
-  constructor (private breakpointObserver: BreakpointObserver) { }
+  constructor (private breakpointObserver: BreakpointObserver,private navTracer:NavTracerService) { }
+  ngOnInit(): void {
+    this.navTracer.routeReceiver.subscribe(res => {
+      this.activatedRoute = res;
+     })
+  }
 
   openDrawer(drawer:MatDrawer) {
     drawer.toggle();

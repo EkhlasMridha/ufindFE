@@ -27,4 +27,12 @@ $primary-color: map-get($custom-theme, primary);
   color: mat-color($primary-color, default);
 }
 
+.primary-background-override {
+  background-color: mat-color($primary-color, default) !important;
+}
+
+.color-white-override{
+  color: white !important;
+}
+
 /* ========================== */

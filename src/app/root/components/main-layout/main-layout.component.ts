@@ -21,5 +21,6 @@ export class MainLayoutComponent implements OnInit {
       DomainService.domains.AppName,
       '::'
     );
+    this.navTracer.activatedRouteBroadCaster();
   }
 }

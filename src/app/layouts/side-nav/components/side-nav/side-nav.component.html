@@ -3,9 +3,14 @@
         [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
         <mat-toolbar color="primary">Menu</mat-toolbar>
         <mat-nav-list>
-            <ng-container *ngFor="let nav of navigations">
-                <a mat-list-item [routerLink]="nav.route">{{nav.name}}</a>
-            </ng-container>
+            <mat-list-item *ngFor="let nav of navigations"
+                [ngClass]="{'primary-background-override color-white-override': activatedRoute==nav.route}" id="{{nav.route}}"
+                [routerLink]="nav.route">
+                <div class="full-width" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start end">
+                    <mat-icon>{{nav.matIcon}}</mat-icon>
+                    <span class="nav-text">{{nav.name}}</span>
+                </div>
+            </mat-list-item>
         </mat-nav-list>
     </mat-drawer>
     <mat-drawer-content class="sub-container">

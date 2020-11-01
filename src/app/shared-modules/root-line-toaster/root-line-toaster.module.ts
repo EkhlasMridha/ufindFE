@@ -5,6 +5,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
+import { RootLineToasterService } from './services/root-line-toaster.service';
 
 
 
@@ -17,5 +18,6 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     MatSnackBarModule
   ],
+  providers:[RootLineToasterService]
 })
 export class RootLineToasterModule { }

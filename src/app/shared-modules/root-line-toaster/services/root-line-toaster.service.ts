@@ -2,9 +2,7 @@ import { Injectable, Renderer2, RendererFactory2, ViewContainerRef } from '@angu
 import { MatSnackBar, MatSnackBarRef } from '@angular/material/snack-bar';
 import { RootLineToasterComponent } from '../components/root-line-toaster/root-line-toaster.component';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class RootLineToasterService {
   ref:MatSnackBarRef<RootLineToasterComponent>;
   renderer:Renderer2;

@@ -1,4 +1,4 @@
-import { NgModule, Renderer2 } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RootLineToasterComponent } from './components/root-line-toaster/root-line-toaster.component';
 import { FlexLayoutModule } from '@angular/flex-layout';

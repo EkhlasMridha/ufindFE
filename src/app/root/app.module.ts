@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DomainService } from '../shared-services/utilities/domain.service';
 import { AppLoaderModule } from '../app-tools/app-loader/app-loader.module';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
 import { interceptorProvider } from '../shared-services/interceptors/interceptor.provider';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { ToastrModule } from 'ngx-toastr';
@@ -25,7 +24,6 @@ export function initializer(domainService: DomainService) {
   declarations: [
     AppComponent,
     MainLayoutComponent,
-    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

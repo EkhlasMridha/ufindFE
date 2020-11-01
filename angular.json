@@ -29,9 +29,6 @@
               "src/styles/styles.scss",
               "src/styles/custom_theme.scss"
             ],
-            "stylePreprocessorOptions": {
-              "includePaths": ["src/styles/theme_pallet.scss"]
-            },
             "scripts": []
           },
           "configurations": {
@@ -94,9 +91,6 @@
               "src/styles/styles.scss",
               "src/styles/custom_theme.scss"
             ],
-            "stylePreprocessorOptions": {
-              "includePaths": ["src/styles/theme_pallet.scss"]
-            },
             "scripts": []
           }
         },

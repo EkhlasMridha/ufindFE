@@ -1,22 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { SignUpModel } from '../models/signup.model';
+import { Router } from '@angular/router';
+import { throwError } from 'rxjs';
 import {
   tap,
   retry,
   catchError,
-  retryWhen,
-  take,
-  concatMap,
-  delay,
 } from 'rxjs/operators';
 import {
   TokenService,
   TokenModel,
-} from 'src/app/shared-services/utilities/token.service';
-import { throwError, of } from 'rxjs';
-import { ErrorHandlerService } from 'src/app/shared-services/utilities/error-handler.service';
-import { Router } from '@angular/router';
+} from '@core/token.service';
+
 
 @Injectable({
   providedIn: 'root',

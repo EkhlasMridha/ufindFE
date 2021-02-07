@@ -1,7 +1,4 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
-import { ConfirmationStatusService } from 'src/app/shared-modules/confirmation-status-modal/services/confirmation-status.service';
-import { RootLineToasterService } from 'src/app/shared-modules/root-line-toaster/services/root-line-toaster.service';
-import { IconService } from 'src/app/shared-services/utilities/icon.service';
+import { Component, OnInit } from '@angular/core';
 import { TesService } from '../../services/tes.service';
 
 @Component({

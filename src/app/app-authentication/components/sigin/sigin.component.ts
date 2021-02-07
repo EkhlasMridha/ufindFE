@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { FormService } from 'src/app/shared-services/utilities/form.service';
+import { FormService } from '@core/form.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({

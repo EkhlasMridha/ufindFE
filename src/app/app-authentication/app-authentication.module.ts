@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SignupComponent } from './components/signup/signup.component';
 import { SharedMaterialModule } from '../shared-modules/shared-materials/shared-material/shared-material.module';
 import { FormsMaterialModule } from '../shared-modules/shared-materials/forms-material/forms-material.module';
-import { AuthGuardService } from '../shared-services/route-guards/auth-guard.service';
+import { AuthGuardService } from '@route-guards';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
@@ -58,4 +58,4 @@ const routes: Routes = [
     FormsMaterialModule,
   ],
 })
-export class AppAuthenticationModule {}
+export class AppAuthenticationModule { }

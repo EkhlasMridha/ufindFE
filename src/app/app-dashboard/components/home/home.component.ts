@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TesService } from '../../services/tes.service';
 
 @Component({
   selector: 'app-home',
@@ -8,14 +7,7 @@ import { TesService } from '../../services/tes.service';
 })
 export class HomeComponent implements OnInit {
   modalRef: any;
-  constructor (
-    private testService: TesService,
-  ) {
-    this.testService.getData().subscribe((res) => {
-      console.log('result');
-      console.log(res);
-    });
-  }
+  constructor () { }
 
   ngOnInit(): void { }
 }

@@ -7,9 +7,14 @@
             <span>Root Line</span>
         </div>
         <div class="spacer"></div>
-        <div class="nav-items">
-            <div class="item" fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center center" (click)="signoutUser()">
-                <mat-icon svgIcon="signout" class="color-icon"></mat-icon>
+        <div class="nav-items" fxLayout="row">
+            <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center center">
+                <span *ngIf="profile">{{profile.name}}</span>
+            </div>
+            <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center center" (click)="signoutUser()">
+                <button mat-icon-button>
+                    <mat-icon svgIcon="signout" class="color-icon"></mat-icon>
+                </button>
             </div>
         </div>
     </mat-toolbar-row>

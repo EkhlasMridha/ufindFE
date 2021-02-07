@@ -25,6 +25,9 @@
       ],
       "@route-guards": [
         "src/app/route-guards/auth-guard.service"
+      ],
+      "@material/*": [
+        "src/app/shared-materials/*"
       ]
     }
   }

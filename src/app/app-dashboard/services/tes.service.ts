@@ -5,9 +5,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class TesService {
-  constructor(private http: HttpClient) {}
+  constructor (private http: HttpClient) { }
 
   getData() {
-    return this.http.get('user/profile');
+    return this.http.get('profile');
   }
 }

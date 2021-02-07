@@ -29,7 +29,7 @@ export class AuthService {
   ) { }
 
   signUp(payload: SignUpModel) {
-    return this.http.post('identity/signup', payload).pipe(
+    return this.http.post('signup', payload).pipe(
       retry(3),
       catchError((err) => {
         return throwError(err);

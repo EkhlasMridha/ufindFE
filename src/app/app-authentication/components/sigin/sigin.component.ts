@@ -4,7 +4,6 @@ import {
   FormBuilder,
   FormGroup,
   Validators,
-  FormControl,
 } from '@angular/forms';
 import { FormService } from 'src/app/shared-services/utilities/form.service';
 import { AuthService } from '../../services/auth.service';
@@ -76,4 +75,5 @@ export class SiginComponent implements OnInit {
       console.log(res);
     });
   }
+
 }

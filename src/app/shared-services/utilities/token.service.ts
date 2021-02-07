@@ -3,38 +3,32 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient } from '@angular/common/http';
 
 export interface TokenModel {
-  accessToken: string;
-  refreshToken: string;
+  token: string;
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class TokenService {
-  private readonly accessToken: string = 'accessToken';
-  private readonly refreshToken: string = 'refreshToken';
-  constructor(private jwtService: JwtHelperService, private http: HttpClient) {}
+  private readonly accessToken: string = 'token';
+  constructor (private jwtService: JwtHelperService, private http: HttpClient) { }
 
-  storeToken(token: TokenModel) {
-    localStorage.setItem(this.accessToken, token.accessToken);
-    localStorage.setItem(this.refreshToken, token.refreshToken);
+  storeToken(tokenModel: TokenModel) {
+    localStorage.setItem(this.accessToken, tokenModel.token);
   }
 
   removeToken() {
     localStorage.removeItem(this.accessToken);
-    localStorage.removeItem(this.refreshToken);
   }
 
   getToken(): TokenModel {
     let access = localStorage.getItem(this.accessToken);
-    let refresh = localStorage.getItem(this.refreshToken);
-    if (!(access && refresh)) {
+    if (!(access)) {
       return null;
     }
 
     let token: TokenModel = {
-      accessToken: access,
-      refreshToken: refresh,
+      token: access,
     };
 
     return token;
@@ -45,14 +39,14 @@ export class TokenService {
     return this.jwtService.isTokenExpired(access);
   }
 
-  refreshAccessToken() {
-    let token = this.getToken();
-    if (token == null) {
-      return null;
-    }
+  // refreshAccessToken() {
+  //   let token = this.getToken();
+  //   if (token == null) {
+  //     return null;
+  //   }
 
-    return this.http.post('identity/refresh', this.getToken());
-  }
+  //   return this.http.post('identity/refresh', this.getToken());
+  // }
 
   hasToken() {
     if (this.getToken() == null) {

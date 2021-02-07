@@ -22,11 +22,11 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(
+  constructor (
     private http: HttpClient,
     private tokenService: TokenService,
     private router: Router
-  ) {}
+  ) { }
 
   signUp(payload: SignUpModel) {
     return this.http.post('identity/signup', payload).pipe(
@@ -38,7 +38,7 @@ export class AuthService {
   }
 
   signin(payload: any) {
-    return this.http.post<TokenModel>('identity/login', payload).pipe(
+    return this.http.post<TokenModel>('login', payload).pipe(
       retry(3),
       catchError((err) => {
         return throwError(err);

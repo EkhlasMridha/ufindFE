@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   AppName: 'Root-Line',
 
-  apiHost: 'http://localhost:6147/v1/',
+  apiHost: 'http://127.0.0.1:8000/v1/',
   RefreshError: 'REFRESH_EXPIRE',
 };
 

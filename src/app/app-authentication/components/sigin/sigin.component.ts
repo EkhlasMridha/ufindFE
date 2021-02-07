@@ -29,15 +29,15 @@ export class SiginComponent implements OnInit {
   loginForm: FormGroup;
 
   errorObserver$ = {
-    userName: '',
+    email: '',
     password: '',
   };
 
-  constructor(
+  constructor (
     private formBuilder: FormBuilder,
     private formService: FormService,
     private authService: AuthService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loginForm = this.createForm();
@@ -50,7 +50,7 @@ export class SiginComponent implements OnInit {
 
   errorTypeGenerator(type: string, owner: string) {
     switch (owner) {
-      case 'userName':
+      case 'email':
         return 'User name is required';
       case 'password':
         return 'Password is required';
@@ -59,7 +59,7 @@ export class SiginComponent implements OnInit {
 
   createForm() {
     return this.formBuilder.group({
-      userName: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required],
     });
   }

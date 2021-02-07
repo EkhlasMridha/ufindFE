@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 export interface TokenModel {
   token: string;
+  isAdmin: string;
 }
 
 @Injectable({
@@ -11,24 +12,28 @@ export interface TokenModel {
 })
 export class TokenService {
   private readonly accessToken: string = 'token';
+  private readonly isAdmin: string = 'isAdmin';
   constructor (private jwtService: JwtHelperService, private http: HttpClient) { }
 
   storeToken(tokenModel: TokenModel) {
     localStorage.setItem(this.accessToken, tokenModel.token);
+    localStorage.setItem(this.isAdmin, tokenModel.isAdmin);
   }
 
   removeToken() {
-    localStorage.removeItem(this.accessToken);
+    localStorage.clear();
   }
 
   getToken(): TokenModel {
     let access = localStorage.getItem(this.accessToken);
+    let isAdmin = localStorage.getItem(this.isAdmin);
     if (!(access)) {
       return null;
     }
 
     let token: TokenModel = {
       token: access,
+      isAdmin: isAdmin
     };
 
     return token;

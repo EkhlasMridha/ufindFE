@@ -1,4 +1,5 @@
 import { InjectionToken } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 
 export interface ModalConfig {
   warnColor: string;
@@ -16,8 +17,10 @@ export interface ModalConfig {
   disableClose: boolean;
   isLoader: boolean;
   loaderText: string;
-  primaryEvent: () => any;
-  secondaryEvent: () => any;
+  panelClass: string | string[];
+  color: ThemePalette;
+  primaryEvent: (event) => any;
+  secondaryEvent: (event) => any;
 }
 
 export const DefaultConfig: Partial<ModalConfig> = {
@@ -30,6 +33,7 @@ export const DefaultConfig: Partial<ModalConfig> = {
   disableClose: false,
   isLoader: false,
   loaderText: 'Loading ...',
+  color: 'primary',
   primaryEvent: () => {},
   secondaryEvent: () => {},
 };

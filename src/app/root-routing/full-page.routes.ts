@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { NotFoundComponent } from '../root/components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -11,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: NotFoundComponent,
+    loadChildren:()=>import("../app-tools/app-not-found/app-not-found.module").then(m=>m.AppNotFoundModule),
     data: {
       breadCrumb: '404',
     },

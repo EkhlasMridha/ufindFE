@@ -15,6 +15,20 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@core/*": [
+        "src/app/core/*"
+      ],
+      "@interceptors": [
+        "src/app/interceptors/interceptor.provider"
+      ],
+      "@route-guards": [
+        "src/app/route-guards/auth-guard.service"
+      ],
+      "@material/*": [
+        "src/app/shared-materials/*"
+      ]
+    }
   }
 }

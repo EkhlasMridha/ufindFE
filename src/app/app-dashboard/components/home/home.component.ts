@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ConfirmationStatusService } from 'src/app/shared-modules/confirmation-status-modal/services/confirmation-status.service';
-import { IconService } from 'src/app/shared-services/utilities/icon.service';
-import { TesService } from '../../services/tes.service';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DashboardService } from '../../services/dashboard.service';
 
 @Component({
   selector: 'app-home',
@@ -9,40 +8,8 @@ import { TesService } from '../../services/tes.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  modalRef: any;
-  constructor(
-    private confirmationService: ConfirmationStatusService,
-    private iconService: IconService,
-    private testService: TesService
-  ) {
-    this.iconService.loadIcons(['like']);
-    this.testService.getData().subscribe((res) => {
-      console.log('result');
-      console.log(res);
-    });
-  }
 
-  ngOnInit(): void {}
+  constructor (private dashBoardService: DashboardService) { }
 
-  runCommand() {
-    this.confirmationService.openConfirmationModal({
-      headerText: 'How are you guys?',
-      description:
-        'This is a test generic modal system for all possible cases.',
-      primaryButtonName: 'Yes',
-      secondaryButtonName: 'No',
-      localIcon: 'like',
-      type: 'success',
-      primaryEvent: this.primaryButton,
-      secondaryEvent: this.secondaryButton,
-    });
-  }
-
-  primaryButton() {
-    console.log('Customized callback');
-  }
-
-  secondaryButton() {
-    console.log('Customized callback 2');
-  }
+  ngOnInit(): void { }
 }

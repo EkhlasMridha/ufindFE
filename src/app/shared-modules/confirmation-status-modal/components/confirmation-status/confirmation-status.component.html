@@ -32,7 +32,7 @@
     <button
       mat-stroked-button
       class="outline-secondary-button"
-      color="primary"
+      [color]="modalConfig.color"
       *ngIf="modalConfig.secondaryButtonName"
       (click)="secodaryButton($event)"
     >
@@ -40,7 +40,7 @@
     </button>
     <button
       mat-raised-button
-      color="primary"
+      [color]="modalConfig.color"
       *ngIf="modalConfig.primaryButtonName"
       (click)="primaryButton($event)"
     >
@@ -54,7 +54,7 @@
   fxLayoutGap="30px"
 >
   <div>
-    <mat-spinner diameter="40"></mat-spinner>
+    <mat-spinner diameter="40" [color]="modalConfig.color"></mat-spinner>
   </div>
   <div>
     <span style="font-size: 16px">{{ modalConfig.loaderText }}</span>

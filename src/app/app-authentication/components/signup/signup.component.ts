@@ -1,4 +1,4 @@
-import { Component, OnInit, SimpleChanges, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { trigger, style, transition, animate } from '@angular/animations';
 import {
   FormGroup,
@@ -8,8 +8,7 @@ import {
   ValidationErrors,
 } from '@angular/forms';
 import { SignUpModel } from '../../models/signup.model';
-import { filter, map } from 'rxjs/operators';
-import { FormService } from 'src/app/shared-services/utilities/form.service';
+import { FormService } from '@core/form.service';
 import { AuthService } from '../../services/auth.service';
 import { Observable } from 'rxjs';
 import { ValidationService } from '../../services/validation.service';
@@ -43,12 +42,12 @@ export class SignupComponent implements OnInit {
     confirmPassword: null,
   };
 
-  constructor(
+  constructor (
     private formBuilder: FormBuilder,
     private formService: FormService,
     private authService: AuthService,
     private validationService: ValidationService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.signUpForm = this.createForm();

@@ -14,3 +14,25 @@ $custom-theme: mat-light-theme(
 );
 
 @include angular-material-theme($custom-theme);
+
+/* theme color pallet classes */
+
+$primary-color: map-get($custom-theme, primary);
+
+.primary-background {
+  background-color: mat-color($primary-color, default);
+}
+
+.primary-color {
+  color: mat-color($primary-color, default);
+}
+
+.primary-background-override {
+  background-color: mat-color($primary-color, default) !important;
+}
+
+.color-white-override{
+  color: white !important;
+}
+
+/* ========================== */

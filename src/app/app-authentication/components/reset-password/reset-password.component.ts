@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Routes } from '@angular/router';
-import { FormService } from 'src/app/shared-services/utilities/form.service';
+import { FormService } from '@core/form.service';
 import { ResetPassWord } from '../../models/reset-password.model';
 import { AuthService } from '../../services/auth.service';
 
@@ -17,7 +17,7 @@ export class ResetPasswordComponent implements OnInit {
     passwordHash: null,
     confirmPassword: null,
   };
-  constructor(
+  constructor (
     private formBuilder: FormBuilder,
     private formService: FormService,
     private routes: ActivatedRoute,

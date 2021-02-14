@@ -23,32 +23,33 @@ export class ConfirmationStatusService {
     this.modalConfig = this.verifyConfig(this.modalConfig);
   }
 
-  private applyConfig(config: Partial<ModalConfig>) {
+  private applyConfig(config: Partial<ModalConfig>): Partial<ModalConfig> {
     config = this.verifyConfig(config);
-    this.modalConfig = {
-      ...this.modalConfig,
-      ...config,
-    };
+
+    return { ...this.modalConfig, ...config };
   }
 
-  private verifyConfig(config: Partial<ModalConfig>) {
+  private verifyConfig(config: Partial<ModalConfig>): Partial<ModalConfig> {
+    let verfiedConfig: Partial<ModalConfig> = { ...config };
     if (config.isLoader) {
-      config.modalWidth = 'auto';
+      verfiedConfig.modalWidth = 'auto';
     }
-    return config;
+    return verfiedConfig;
   }
 
-  private openDialog(config: Partial<ModalConfig>) {
-    this.applyConfig(config);
+  private openDialog(config: Partial<ModalConfig> = {}) {
+    let dialogConfig = this.applyConfig(config);
+
     return this.dialog.open(ConfirmationStatusComponent, {
-      width: this.modalConfig.modalWidth,
-      disableClose: this.modalConfig.disableClose,
-      data: this.modalConfig,
+      width: dialogConfig.modalWidth,
+      disableClose: dialogConfig.disableClose,
+      panelClass: dialogConfig.panelClass,
+      data: dialogConfig,
     });
   }
 
   openConfirmationModal(
-    config: Partial<ModalConfig>
+    config: Partial<ModalConfig> = {}
   ): MatDialogRef<ConfirmationStatusComponent> {
     return this.openDialog(config);
   }

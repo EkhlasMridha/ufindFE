@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { AuthGuardService } from '../shared-services/route-guards/auth-guard.service';
+import { AuthGuardService } from '@route-guards';
 
 const routes: Routes = [
   {
@@ -18,6 +18,13 @@ const routes: Routes = [
     },
     canActivateChild: [AuthGuardService],
   },
+  {
+    path: "submit-case",
+    loadChildren: () => import("../app-submit/app-submit.module").then((module) => module.AppSubmitModule),
+    data: {
+      breadCrumb: "Submit case"
+    }
+  }
 ];
 
 export function getBusinessRoutes() {

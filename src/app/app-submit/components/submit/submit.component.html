@@ -1,0 +1,36 @@
+<div class="pages" fxLayout="column" fxLayoutGap="15px">
+    <div class="header">
+        <span class="title">Submit Case</span>
+    </div>
+    <form [formGroup]='formGroup' (ngSubmit)="onSubmit()" fxLayout="row" fxLayoutGap="15px">
+        <div fxFlex="30" fxLayoutGap="10px" fxLayout="column" fxLayoutGap="10px">
+            <div>
+                <button mat-raised-button type="button" color="primary" fxLayout="row" (click)="onUpload()">
+                    <mat-icon style="margin-right: 10px;">cloud_upload</mat-icon>
+                    <span>Upload</span>
+                </button>
+            </div>
+            <img *ngIf="imageUrl" class="missing-image" [src]="imageUrl" alt="">
+            <span class="gray-text">{{fileName}}</span>
+            <input hidden #fileinput type="file" placeholder="name" />
+        </div>
+
+        <div fxFlex="70" class="full-width" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="end end">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" placeholder="name" />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Location</mat-label>
+                <input matInput formControlName="location" placeholder="location" />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Description</mat-label>
+                <input matInput formControlName="description" placeholder="description" />
+            </mat-form-field>
+            <div>
+                <button mat-raised-button color="primary" type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

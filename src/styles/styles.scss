@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import "./color_variables.scss";
 
 html,
 body {
@@ -7,18 +6,6 @@ body {
 }
 body {
   margin: 0;
-}
-
-.primary-background {
-  background-color: $primary-default;
-}
-
-.primary-color {
-  color: $primary-default;
-}
-
-.secondary-background {
-  background-color: $secondary-default !important;
 }
 
 .full-width {
@@ -41,3 +28,12 @@ body {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.page-container {
+  padding: 30px;
+}
+
+.gray-text{
+  color: #999999;
+}
+

@@ -26,17 +26,12 @@ export class SideNavComponent implements OnInit {
     {
       name: "Dashboard",
       route: "dashboard",
-      matIcon: "home"
+      matIcon: "dashboard"
     },
     {
-      name: "Navigation 2",
-      route: "home",
-      matIcon: "home"
-    },
-    {
-      name: "Navigation 2",
-      route: "home",
-      matIcon: "home"
+      name: "Submit case",
+      route: "submit-case",
+      matIcon: "cloud_circle"
     }
   ];
 

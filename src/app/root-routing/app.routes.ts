@@ -18,6 +18,13 @@ const routes: Routes = [
     },
     canActivateChild: [AuthGuardService],
   },
+  {
+    path: "submit-case",
+    loadChildren: () => import("../app-submit/app-submit.module").then((module) => module.AppSubmitModule),
+    data: {
+      breadCrumb: "Submit case"
+    }
+  }
 ];
 
 export function getBusinessRoutes() {

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DomainService } from '@core/domain.service';
+import { CaseModel } from '../../models/cases.model';
 import { DashboardService } from '../../services/dashboard.service';
 
 @Component({
@@ -7,7 +9,8 @@ import { DashboardService } from '../../services/dashboard.service';
   styleUrls: ['./police-dashboard.component.scss']
 })
 export class PoliceDashboardComponent implements OnInit {
-  caseList: any[];
+  caseList: CaseModel[];
+  imageURL: string;
   constructor (private dashboardService: DashboardService) { }
 
   ngOnInit(): void {
@@ -18,5 +21,9 @@ export class PoliceDashboardComponent implements OnInit {
     this.dashboardService.getUnsolvedCases().subscribe(res => {
       this.caseList = res;
     });
+  }
+
+  getFullBlobUrl(imagePath: string) {
+    return DomainService.domains.blobHost + imagePath;
   }
 }

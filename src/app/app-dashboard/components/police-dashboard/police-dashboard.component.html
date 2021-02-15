@@ -4,7 +4,7 @@
     </div>
     <ng-container *ngIf="caseList">
         <mat-card fxLayout="row" fxLayoutGap="30px" *ngFor="let case of caseList">
-            <img class="missing-person" src="../../../../assets/images/back.jpg" alt="">
+            <img class="missing-person" [src]="getFullBlobUrl(case.image)" alt="">
             <div fxLayout="column" class="full-width">
                 <div fxLayout="column" class="full-height" fxLayoutGap="8px">
                     <div fxLayout="row" fxLayoutGap="15px">

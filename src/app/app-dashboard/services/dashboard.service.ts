@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CaseModel } from '../models/cases.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,6 @@ export class DashboardService {
   }
 
   getUnsolvedCases() {
-    return this.http.get<any[]>('get-cases');
+    return this.http.get<CaseModel[]>('get-cases');
   }
 }

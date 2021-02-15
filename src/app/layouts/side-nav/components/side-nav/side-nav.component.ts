@@ -36,6 +36,12 @@ export class SideNavComponent implements OnInit {
       matIcon: "cloud_circle",
       isVisible: false,
       role: 'station'
+    },
+    {
+      name: 'Create user',
+      route: 'user-create',
+      matIcon: 'accessibility',
+      role: 'admin'
     }
   ];
 

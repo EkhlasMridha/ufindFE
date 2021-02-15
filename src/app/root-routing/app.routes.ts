@@ -23,7 +23,16 @@ const routes: Routes = [
     loadChildren: () => import("../app-submit/app-submit.module").then((module) => module.AppSubmitModule),
     data: {
       breadCrumb: "Submit case"
-    }
+    },
+    canActivateChild: [AuthGuardService]
+  },
+  {
+    path: 'user-create',
+    loadChildren: () => import('../app-usercreate/app-usercreate.module').then((module) => module.AppUsercreateModule),
+    data: {
+      breadCrumb: "Create user"
+    },
+    canActivateChild: [AuthGuardService]
   }
 ];
 

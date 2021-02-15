@@ -16,4 +16,12 @@ export class DashboardService {
   getUnsolvedCases() {
     return this.http.get<CaseModel[]>('get-cases');
   }
+
+  getAllCases() {
+    return this.http.get<CaseModel[]>('allcase');
+  }
+
+  getUserList() {
+    return this.http.get<any[]>('alluser');
+  }
 }

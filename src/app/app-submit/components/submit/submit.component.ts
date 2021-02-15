@@ -68,7 +68,6 @@ export class SubmitComponent implements OnInit {
   }
 
   onSubmit() {
-    // console.log(this.formGroup.value);
     const result = Object.assign({}, this.formGroup.value);
     this.formData.set('name', result.name);
     this.formData.set('location', result.location);

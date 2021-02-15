@@ -3,4 +3,5 @@ export interface CaseModel {
     phone: string;
     name: string;
     description: string;
+    isSolved: Boolean;
 }

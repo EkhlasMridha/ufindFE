@@ -1,1 +1,5 @@
-<police-dashboard></police-dashboard>
+<ng-template #admin>
+    <app-admin></app-admin>
+</ng-template>
+
+<police-dashboard *ngIf="isAdmin=='false'; else admin"></police-dashboard>

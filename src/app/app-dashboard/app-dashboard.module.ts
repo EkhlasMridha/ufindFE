@@ -7,6 +7,7 @@ import { ConfirmationStatusModalModule } from '../shared-modules/confirmation-st
 import { RootLineToasterModule } from '../shared-modules/root-line-toaster/root-line-toaster.module';
 import { FormsMaterialModule } from '@material/forms-material.module';
 import { PoliceDashboardComponent } from './components/police-dashboard/police-dashboard.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [HomeComponent, PoliceDashboardComponent],
+  declarations: [HomeComponent, PoliceDashboardComponent, AdminComponent],
   imports: [
     CommonModule,
     SharedMaterialModule,

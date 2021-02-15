@@ -73,6 +73,7 @@ export class SubmitComponent implements OnInit {
     this.formData.set('name', result.name);
     this.formData.set('location', result.location);
     this.formData.set('description', result.description);
+    this.formData.set('policeid', null);
     console.log(this.formData);
     this.dashBoardService.submitCase(this.formData).subscribe(res => {
       console.log(res);

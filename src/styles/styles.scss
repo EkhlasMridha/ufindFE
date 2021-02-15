@@ -37,3 +37,19 @@ body {
   color: #999999;
 }
 
+.container{
+  padding: 20px;
+}
+
+.header{
+  padding: 0px 0px 15px 0px;
+  border-bottom: 1px solid #242424;
+  .title{
+    font-weight: 600;
+    font-size: 21px;
+  }
+}
+
+.bold-text{
+  font-weight: 600;
+}

@@ -11,4 +11,8 @@ export class DashboardService {
   submitCase(value: any) {
     return this.http.post('case', value);
   }
+
+  getUnsolvedCases() {
+    return this.http.get<any[]>('get-cases');
+  }
 }

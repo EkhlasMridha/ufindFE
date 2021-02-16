@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="header">
+        <span class="title">Register a office</span>
+    </div>
+    <div class="page-content">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" fxLayout="column" style="margin-top: 15px;">
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" placeholder="name">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="name">
+            </mat-form-field>
+            <div fxLayoutAlign="end end">
+                <button mat-raised-button color="primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -6,6 +6,10 @@ import { SharedMaterialModule } from '@material/shared-material.module';
 import { ConfirmationStatusModalModule } from '../shared-modules/confirmation-status-modal/confirmation-status-modal.module';
 import { RootLineToasterModule } from '../shared-modules/root-line-toaster/root-line-toaster.module';
 import { FormsMaterialModule } from '@material/forms-material.module';
+import { PoliceDashboardComponent } from './components/police-dashboard/police-dashboard.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { FindModalComponent } from './modals/find-modal/find-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const routes: Routes = [
   {
@@ -18,7 +22,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, PoliceDashboardComponent, AdminComponent, FindModalComponent],
   imports: [
     CommonModule,
     SharedMaterialModule,
@@ -27,6 +31,7 @@ const routes: Routes = [
       modalWidth: '500px',
     }),
     RouterModule.forChild(routes),
+    MatDialogModule,
     RootLineToasterModule
   ],
 })

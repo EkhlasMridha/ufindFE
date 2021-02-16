@@ -4,9 +4,10 @@
 
 export const environment = {
   production: false,
-  AppName: 'Root-Line',
+  AppName: 'MSPFinder',
 
   apiHost: 'http://127.0.0.1:8000/v1/',
+  blobHost: 'http://127.0.0.1:8000'
 };
 
 /*

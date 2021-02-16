@@ -8,8 +8,10 @@ import { DashboardService } from '../../services/dashboard.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
-  constructor (private dashBoardService: DashboardService) { }
+  isAdmin: any;
+  constructor () {
+    this.isAdmin = localStorage.getItem("isAdmin");
+  }
 
   ngOnInit(): void { }
 }

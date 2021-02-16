@@ -29,9 +29,10 @@ export class PoliceDashboardComponent implements OnInit {
     return DomainService.domains.blobHost + imagePath;
   }
 
-  checkUpdate() {
+  checkUpdate(data: CaseModel) {
     this.dialog.open(FindModalComponent, {
-      width: 'auto'
+      width: 'auto',
+      data: data
     });
   }
 }

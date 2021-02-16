@@ -23,7 +23,7 @@ Download and install [git](https://git-scm.com/downloads). We need git to work w
 
 ## Run the project on Development server
 
-*After the package has been installed run `npm start` or `ng serve` on the terminal to run the project on a dev server.
+* After the package has been installed run `npm start` or `ng serve` on the terminal to run the project on a dev server.
 * Navigate to [http://localhost:4200/](http://localhost:4200/) on your browser.
 
 ## Build

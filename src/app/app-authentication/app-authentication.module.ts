@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SiginComponent } from './components/sigin/sigin.component';
 import { Routes, RouterModule } from '@angular/router';
-import { SignupComponent } from './components/signup/signup.component';
 import { SharedMaterialModule } from '@material/shared-material.module';
 import { FormsMaterialModule } from '@material/forms-material.module';
 import { AuthGuardService } from '@route-guards';
@@ -15,14 +14,6 @@ const routes: Routes = [
     component: SiginComponent,
     data: {
       breadCrumb: 'SignIn',
-    },
-    canActivate: [AuthGuardService],
-  },
-  {
-    path: 'signup',
-    component: SignupComponent,
-    data: {
-      breadCrumb: 'SignUp',
     },
     canActivate: [AuthGuardService],
   },
@@ -47,7 +38,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     SiginComponent,
-    SignupComponent,
     ResetPasswordComponent,
     ForgotPasswordComponent,
   ],

@@ -8,6 +8,8 @@ import { RootLineToasterModule } from '../shared-modules/root-line-toaster/root-
 import { FormsMaterialModule } from '@material/forms-material.module';
 import { PoliceDashboardComponent } from './components/police-dashboard/police-dashboard.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { FindModalComponent } from './modals/find-modal/find-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const routes: Routes = [
   {
@@ -20,7 +22,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [HomeComponent, PoliceDashboardComponent, AdminComponent],
+  declarations: [HomeComponent, PoliceDashboardComponent, AdminComponent, FindModalComponent],
   imports: [
     CommonModule,
     SharedMaterialModule,
@@ -29,6 +31,7 @@ const routes: Routes = [
       modalWidth: '500px',
     }),
     RouterModule.forChild(routes),
+    MatDialogModule,
     RootLineToasterModule
   ],
 })

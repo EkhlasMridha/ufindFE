@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { DomainService } from '@core/domain.service';
+import { FindModalComponent } from '../../modals/find-modal/find-modal.component';
 import { CaseModel } from '../../models/cases.model';
 import { DashboardService } from '../../services/dashboard.service';
 
@@ -11,7 +13,7 @@ import { DashboardService } from '../../services/dashboard.service';
 export class PoliceDashboardComponent implements OnInit {
   caseList: CaseModel[];
   imageURL: string;
-  constructor (private dashboardService: DashboardService) { }
+  constructor (private dashboardService: DashboardService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getCaseList();
@@ -25,5 +27,11 @@ export class PoliceDashboardComponent implements OnInit {
 
   getFullBlobUrl(imagePath: string) {
     return DomainService.domains.blobHost + imagePath;
+  }
+
+  checkUpdate() {
+    this.dialog.open(FindModalComponent, {
+      width: 'auto'
+    });
   }
 }

@@ -1,26 +1,34 @@
-# Root-line
+#UfindFE
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
 
-## Development server
+## Installing angular
+* We need npm package manager to setup everything. Visit [Nodejs](https://nodejs.org/en/) , download and install nodejs which will install npm package manager with it.
+* Now install angular cli by running `npm install -g @angular/cli` command on terminal or command prompt on your machine. Visit [Angular CLI](https://cli.angular.io/) for detail.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Install git
+Download and install [git](https://git-scm.com/downloads). We need git to work with the repository.
 
-## Code scaffolding
+## Project setup
+###### Download tools
+* Download and install [Visual studio code](https://visualstudio.microsoft.com/downloads/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+###### Cloning the project on local machine
+* Open command prompt or terminal on a directory.
+* Run command `git clone https://github.com/EkhlasMridha/BSChatFE.git` on the terminal to clone the project on that directory.
+
+###### Installing packages
+* Open terminal on VScode.
+* Run command `npm install` on terminal to install the packages.
+
+## Run the project on Development server
+
+*After the package has been installed run `npm start` or `ng serve` on the terminal to run the project on a dev server.
+* Navigate to [http://localhost:4200/](http://localhost:4200/) on your browser.
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Further help
 

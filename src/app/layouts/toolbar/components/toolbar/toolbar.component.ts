@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { IconService } from '@core/icon.service';
-import { TokenService } from '@core/token.service';
 import { UserManagerService } from '@core/user-manager.service';
 
 @Component({

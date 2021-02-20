@@ -30,4 +30,10 @@ export class FindModalComponent implements OnInit {
     });
     return personList;
   }
+
+  markSolved() {
+    this.dasboardService.markAsSolved(this.data).subscribe(res => {
+      console.log(res);
+    });
+  }
 }

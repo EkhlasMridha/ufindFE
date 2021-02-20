@@ -37,9 +37,7 @@ export class PoliceDashboardComponent implements OnInit {
   }
 
   deleteCase(data: CaseModel) {
-    console.log(data);
     this.dashboardService.deleteCase(data).subscribe(res => {
-      console.log(res);
       this.caseList = this.deleteCaseData(this.caseList, data.id);
     });
   }

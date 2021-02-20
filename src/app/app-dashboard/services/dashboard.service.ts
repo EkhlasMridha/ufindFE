@@ -33,4 +33,8 @@ export class DashboardService {
   deleteCase(payload: CaseModel) {
     return this.http.post('delete-case', payload);
   }
+
+  markAsSolved(payload: any) {
+    return this.http.post('make-solved', payload);
+  }
 }

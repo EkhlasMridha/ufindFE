@@ -1,4 +1,4 @@
-<div fxLayout="row wrap">
+<div fxLayout="row wrap" fxLayoutGap="15px">
     <ng-container *ngFor="let foundPerson of foundPersonList">
         <div fxLayout="column" fxLayoutGap="15px" *ngIf="foundPerson">
             <img class='card-image' [src]="foundPerson.image" alt="">
@@ -9,6 +9,9 @@
             <div fxLayout="row">
                 <span class="bold-text">Description:</span>
                 <span>{{foundPerson.description}}</span>
+            </div>
+            <div class="full-width" fxLayoutAlign="end end">
+                <button mat-raised-button color="primary" (click)="markSolved()">Mark as solved</button>
             </div>
         </div>
     </ng-container>

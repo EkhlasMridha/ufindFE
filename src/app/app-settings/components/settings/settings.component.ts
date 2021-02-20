@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormService } from '@core/form.service';
+import { SettingService } from '../../services/setting.service';
 
 @Component({
   selector: 'app-settings',
@@ -9,7 +10,7 @@ import { FormService } from '@core/form.service';
 })
 export class SettingsComponent implements OnInit {
   resetForm: FormGroup;
-  constructor (private formBuilder: FormBuilder, private formService: FormService) { }
+  constructor (private formBuilder: FormBuilder, private formService: FormService, private settingsService: SettingService) { }
 
   errorObserver$ = {
     oldpass: '',
@@ -44,6 +45,7 @@ export class SettingsComponent implements OnInit {
     }
 
     const result = Object.assign({}, this.resetForm.value);
-    console.log(result);
+
+    this.settingsService.changePass(result).subscribe(res => { });
   }
 }

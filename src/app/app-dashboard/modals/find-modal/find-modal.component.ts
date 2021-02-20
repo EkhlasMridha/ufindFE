@@ -12,7 +12,7 @@ import { DashboardService } from '../../services/dashboard.service';
 })
 export class FindModalComponent implements OnInit {
   data: CaseModel;
-  foundPerson: FoundModel;
+  foundPersonList: FoundModel[];
   constructor (@Inject(MAT_DIALOG_DATA) data: any, private dasboardService: DashboardService) {
     this.data = data;
   }
@@ -20,12 +20,14 @@ export class FindModalComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.data);
     this.dasboardService.matchPhoto(this.data).subscribe(res => {
-      this.foundPerson = this.preparePerson(res);
+      this.foundPersonList = this.preparePerson(res);
     });
   }
 
-  preparePerson(person: FoundModel) {
-    person.image = DomainService.domains.blobHost + person.image;
-    return person;
+  preparePerson(personList: FoundModel[]) {
+    personList.forEach(person => {
+      person.image = DomainService.domains.blobHost + person.image;
+    });
+    return personList;
   }
 }

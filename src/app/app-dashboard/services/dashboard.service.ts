@@ -27,6 +27,6 @@ export class DashboardService {
   }
 
   matchPhoto(payload: any) {
-    return this.http.post<FoundModel>('match', payload);
+    return this.http.post<FoundModel[]>('match', payload);
   }
 }

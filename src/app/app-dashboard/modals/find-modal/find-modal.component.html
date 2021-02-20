@@ -1,11 +1,15 @@
-<div fxLayout="column" fxLayoutGap="15px" *ngIf="foundPerson">
-    <img class='card-image' [src]="foundPerson.image" alt="">
-    <div fxLayout="row">
-        <span class="bold-text">Phone:</span>
-        <span>{{foundPerson.phone}}</span>
-    </div>
-    <div fxLayout="row">
-        <span class="bold-text">Description:</span>
-        <span>{{foundPerson.description}}</span>
-    </div>
+<div fxLayout="row wrap">
+    <ng-container *ngFor="let foundPerson of foundPersonList">
+        <div fxLayout="column" fxLayoutGap="15px" *ngIf="foundPerson">
+            <img class='card-image' [src]="foundPerson.image" alt="">
+            <div fxLayout="row">
+                <span class="bold-text">Phone:</span>
+                <span>{{foundPerson.phone}}</span>
+            </div>
+            <div fxLayout="row">
+                <span class="bold-text">Description:</span>
+                <span>{{foundPerson.description}}</span>
+            </div>
+        </div>
+    </ng-container>
 </div>

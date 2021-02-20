@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './components/home/home.component';
 import { Routes, RouterModule } from '@angular/router';
 import { SharedMaterialModule } from '@material/shared-material.module';
-import { ConfirmationStatusModalModule } from '../shared-modules/confirmation-status-modal/confirmation-status-modal.module';
+import { RootlineDialogModule } from "@rootline-dialog";
 import { RootLineToasterModule } from '../shared-modules/root-line-toaster/root-line-toaster.module';
 import { FormsMaterialModule } from '@material/forms-material.module';
 import { PoliceDashboardComponent } from './components/police-dashboard/police-dashboard.component';
@@ -27,7 +27,7 @@ const routes: Routes = [
     CommonModule,
     SharedMaterialModule,
     FormsMaterialModule,
-    ConfirmationStatusModalModule.forChild({
+    RootlineDialogModule.forChild({
       modalWidth: '500px',
     }),
     RouterModule.forChild(routes),

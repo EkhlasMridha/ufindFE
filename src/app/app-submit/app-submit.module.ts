@@ -4,6 +4,7 @@ import { SubmitComponent } from './components/submit/submit.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedMaterialModule } from '@material/shared-material.module';
 import { FormsMaterialModule } from '@material/forms-material.module';
+import { RootlineDialogModule } from "@rootline-dialog";
 
 const routes: Routes = [
   {
@@ -21,7 +22,10 @@ const routes: Routes = [
     CommonModule,
     SharedMaterialModule,
     FormsMaterialModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    RootlineDialogModule.forChild({
+      modalWidth: "500px"
+    })
   ]
 })
 export class AppSubmitModule { }

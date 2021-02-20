@@ -10,6 +10,7 @@ import { UsercreateService } from '../../services/usercreate.service';
 })
 export class UsercreateComponent implements OnInit {
   registerForm: FormGroup;
+  isLoading: boolean = false;
   constructor (private formBuilder: FormBuilder, private formService: FormService, private userService: UsercreateService) { }
 
   ngOnInit(): void {
@@ -48,8 +49,10 @@ export class UsercreateComponent implements OnInit {
       return;
     }
     const result = Object.assign({}, this.registerForm.value);
+    this.isLoading = true;
     this.userService.createUser(result).subscribe(res => {
       console.log(res);
+      this.isLoading = false;
     });
   }
 }

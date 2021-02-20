@@ -26,6 +26,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class SiginComponent implements OnInit {
   loginForm: FormGroup;
+  isLoading: boolean = false;
 
   errorObserver$ = {
     email: '',
@@ -69,10 +70,11 @@ export class SiginComponent implements OnInit {
       return;
     }
     const result = Object.assign({}, this.loginForm.value);
-    console.log(result);
 
+    this.isLoading = true;
     this.authService.signin(result).subscribe((res) => {
       console.log(res);
+      this.isLoading = false;
     });
   }
 

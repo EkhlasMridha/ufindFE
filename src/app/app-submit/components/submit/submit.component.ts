@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SubmitService } from '../../services/submit.service';
+import { RootlineDialogService } from "@rootline-dialog";
 
 @Component({
   selector: 'app-submit',
@@ -19,7 +20,7 @@ export class SubmitComponent implements OnInit {
 
   @ViewChild('fileinput') fileInput: ElementRef;
 
-  constructor (private formBuilder: FormBuilder, private dashBoardService: SubmitService) { }
+  constructor (private formBuilder: FormBuilder, private dashBoardService: SubmitService, private rootlineDialog: RootlineDialogService) { }
 
   ngOnInit(): void {
     this.formGroup = this.createForm();
@@ -73,9 +74,14 @@ export class SubmitComponent implements OnInit {
     this.formData.set('location', result.location);
     this.formData.set('description', result.description);
     this.formData.set('policeid', null);
-    console.log(this.formData);
+
+    let dialog = this.rootlineDialog.openConfirmationModal({
+      isLoader: true,
+      disableClose: true
+    });
     this.dashBoardService.submitCase(this.formData).subscribe(res => {
       console.log(res);
+      dialog.close();
     });
   }
 

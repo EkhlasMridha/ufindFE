@@ -28,6 +28,10 @@
       ],
       "@material/*": [
         "src/app/shared-materials/*"
+      ],
+      "@rootline-dialog": [
+        "libs/rootline-dialog/rootline-dialog",
+        "libs/rootline-dialog"
       ]
     }
   }

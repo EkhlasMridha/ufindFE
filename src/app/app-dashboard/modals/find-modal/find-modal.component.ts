@@ -4,6 +4,7 @@ import { DomainService } from '@core/domain.service';
 import { CaseModel } from '../../models/cases.model';
 import { FoundModel } from '../../models/found.model';
 import { DashboardService } from '../../services/dashboard.service';
+import { RootlineDialogService } from "@rootline-dialog";
 
 @Component({
   selector: 'app-find-modal',
@@ -13,14 +14,15 @@ import { DashboardService } from '../../services/dashboard.service';
 export class FindModalComponent implements OnInit {
   data: CaseModel;
   foundPersonList: FoundModel[];
-  constructor (@Inject(MAT_DIALOG_DATA) data: any, private dasboardService: DashboardService) {
+  constructor (@Inject(MAT_DIALOG_DATA) data: any, private dasboardService: DashboardService, private rootlineDialog: RootlineDialogService) {
     this.data = data;
   }
 
   ngOnInit(): void {
-    console.log(this.data);
+    let dialog = this.rootlineDialog.openConfirmationModal({ isLoader: true, disableClose: true });
     this.dasboardService.matchPhoto(this.data).subscribe(res => {
       this.foundPersonList = this.preparePerson(res);
+      dialog.close();
     });
   }
 

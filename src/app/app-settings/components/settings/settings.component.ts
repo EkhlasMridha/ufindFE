@@ -10,6 +10,7 @@ import { SettingService } from '../../services/setting.service';
 })
 export class SettingsComponent implements OnInit {
   resetForm: FormGroup;
+  isLoading: boolean = false;
   constructor (private formBuilder: FormBuilder, private formService: FormService, private settingsService: SettingService) { }
 
   errorObserver$ = {
@@ -46,6 +47,9 @@ export class SettingsComponent implements OnInit {
 
     const result = Object.assign({}, this.resetForm.value);
 
-    this.settingsService.changePass(result).subscribe(res => { });
+    this.isLoading = true;
+    this.settingsService.changePass(result).subscribe(res => {
+      this.isLoading = false;
+    });
   }
 }

@@ -1,4 +1,4 @@
-const authRoutes: string[] = ['/dashboard'];
+const authRoutes: string[] = ['/dashboard', '/settings'];
 
 const stationRoutes: string[] = ['/submit-case'];
 

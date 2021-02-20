@@ -33,6 +33,14 @@ const routes: Routes = [
       breadCrumb: "Create user"
     },
     canActivateChild: [AuthGuardService]
+  },
+  {
+    path: "settings",
+    loadChildren: () => import("../app-settings/app-settings.module").then(module => module.AppSettingsModule),
+    data: {
+      breadCrumb: "Settings"
+    },
+    canActivateChild: [AuthGuardService]
   }
 ];
 

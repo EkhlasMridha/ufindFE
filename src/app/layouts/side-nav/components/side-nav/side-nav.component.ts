@@ -42,6 +42,13 @@ export class SideNavComponent implements OnInit {
       route: 'user-create',
       matIcon: 'accessibility',
       role: 'admin'
+    },
+    {
+      name: "Settings",
+      route: "settings",
+      matIcon: "settings",
+      isVisible: true,
+      role: "common"
     }
   ];
 

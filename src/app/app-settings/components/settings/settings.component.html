@@ -1,0 +1,27 @@
+<div class="container" fxLayout="column" fxLayoutGap="20px">
+    <div class="header">
+        <span class="title primary-color">Account settings</span>
+    </div>
+    <form [formGroup]='resetForm' (ngSubmit)="onSubmit()" class="page-content full-width" fxLayout="column">
+        <div class="full-width" style="padding-bottom: 15px;">
+            <span class="bold-text" style="font-size: 16px;">Reset password</span>
+        </div>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Old password</mat-label>
+            <input matInput formControlName="oldpass" placeholder="old password">
+            <mat-error>
+                {{errorObserver$.oldpass | async}}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>New password</mat-label>
+            <input matInput formControlName="newpass" placeholder="new password">
+            <mat-error>
+                {{errorObserver$.newpass | async}}
+            </mat-error>
+        </mat-form-field>
+        <div class="full-width" fxLayoutAlign="end end">
+            <button mat-raised-button color="primary">Submit</button>
+        </div>
+    </form>
+</div>

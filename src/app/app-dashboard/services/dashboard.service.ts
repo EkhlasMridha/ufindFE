@@ -29,4 +29,8 @@ export class DashboardService {
   matchPhoto(payload: any) {
     return this.http.post<FoundModel[]>('match', payload);
   }
+
+  deleteCase(payload: CaseModel) {
+    return this.http.post('delete-case', payload);
+  }
 }

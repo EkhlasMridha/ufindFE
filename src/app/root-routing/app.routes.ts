@@ -41,6 +41,13 @@ const routes: Routes = [
       breadCrumb: "Settings"
     },
     canActivateChild: [AuthGuardService]
+  },
+  {
+    path: 'solved',
+    loadChildren: () => import('../app-solvedcase/app-solvedcase.module').then(m => m.AppSolvedcaseModule),
+    data: {
+      breadCrumb: "Solved"
+    }
   }
 ];
 

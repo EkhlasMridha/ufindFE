@@ -19,7 +19,7 @@ export class FindModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let dialog = this.rootlineDialog.openConfirmationModal({ isLoader: true, disableClose: true });
+    let dialog = this.rootlineDialog.openConfirmationModal({ loaderText: 'Finding matches ...', isLoader: true, disableClose: true });
     this.dasboardService.matchPhoto(this.data).subscribe(res => {
       this.foundPersonList = this.preparePerson(res);
       dialog.close();
@@ -34,6 +34,7 @@ export class FindModalComponent implements OnInit {
   }
 
   markSolved() {
+    console.log(this.data);
     this.dasboardService.markAsSolved(this.data).subscribe(res => {
       console.log(res);
     });

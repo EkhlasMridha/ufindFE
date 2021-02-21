@@ -1,6 +1,6 @@
 const authRoutes: string[] = ['/dashboard', '/settings'];
 
-const stationRoutes: string[] = ['/submit-case'];
+const stationRoutes: string[] = ['/submit-case', '/solved'];
 
 const adminRoutes: string[] = ['/user-create'];
 

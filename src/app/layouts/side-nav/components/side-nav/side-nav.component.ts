@@ -31,10 +31,17 @@ export class SideNavComponent implements OnInit {
       role: 'common'
     },
     {
+      name: 'Solved cases',
+      route: 'solved',
+      isVisible: true,
+      matIcon: 'assignment_turned_in',
+      role: 'station'
+    },
+    {
       name: "Submit case",
       route: "submit-case",
       matIcon: "cloud_circle",
-      isVisible: false,
+      isVisible: true,
       role: 'station'
     },
     {

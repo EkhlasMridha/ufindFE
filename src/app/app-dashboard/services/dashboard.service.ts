@@ -35,6 +35,6 @@ export class DashboardService {
   }
 
   markAsSolved(payload: any) {
-    return this.http.post('make-solved', payload);
+    return this.http.post('mark-solved', payload);
   }
 }

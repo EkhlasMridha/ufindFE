@@ -1,0 +1,29 @@
+<div class="container full-width" fxLayout="column" fxLayoutGap="15px">
+    <div class="header">
+        <span class="title primary-color">Solved cases</span>
+    </div>
+    <ng-container *ngIf="caseList">
+        <mat-card fxLayout="row" fxLayoutGap="30px" *ngFor="let case of caseList">
+            <img class="missing-person" [src]="getFullBlobUrl(case.image)" alt="">
+            <div fxLayout="column" class="full-width">
+                <div fxLayout="column" class="full-height" fxLayoutGap="8px">
+                    <div fxLayout="row" fxLayoutGap="15px">
+                        <span class="bold-text">Name:</span>
+                        <span class="sub">{{case.name}}</span>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="15px">
+                        <span class="bold-text">Contact:</span>
+                        <span class="sub">{{case.phone}}</span>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="15px">
+                        <span class="bold-text">Description:</span>
+                        <span class="sub">{{case.description}}</span>
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="end end">
+                    <button mat-raised-button (click)="deleteCase(case)">Delete case</button>
+                </div>
+            </div>
+        </mat-card>
+    </ng-container>
+</div>
